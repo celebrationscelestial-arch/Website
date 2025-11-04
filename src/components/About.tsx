@@ -20,7 +20,7 @@ const About = () => {
       setCurrentIndex((prevIndex) =>
         prevIndex === weddingImages.length - 1 ? 0 : prevIndex + 1
       );
-    }, 3000); // Time delay of 5 seconds
+    }, 3000); // Time delay of 3 seconds
 
     return () => clearInterval(intervalId);
   }, []);
@@ -51,7 +51,10 @@ const About = () => {
           </h2>
           
           {/* Carousel Container: Sets up the perspective area */}
-          <div className="relative w-full max-w-3xl mx-auto h-64 md:h-96 lg:h-[30rem]">
+          {/* CHANGE: Reduced max-width from max-w-3xl to max-w-2xl 
+            and reduced height classes to make the carousel smaller.
+          */}
+          <div className="relative w-full max-w-2xl mx-auto h-56 md:h-80 lg:h-[26rem]">
             {weddingImages.map((src, index) => {
               const prevIndex = (currentIndex - 1 + weddingImages.length) % weddingImages.length;
               const nextIndex = (currentIndex + 1) % weddingImages.length;

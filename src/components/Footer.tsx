@@ -40,9 +40,6 @@ const Footer = () => {
           {/* Company Info */}
           <div className="space-y-6">
             <div className="flex items-center space-x-2">
-              <div className="bg-gold-gradient rounded-full p-3 shadow-divine">
-                <Calendar className="h-6 w-6 text-deep-black" />
-              </div>
               <span className="text-3xl font-great-vibes text-divine-gold">Celestial Celebrations</span>
             </div>
             <p className="text-gray-300 font-inter leading-relaxed">
