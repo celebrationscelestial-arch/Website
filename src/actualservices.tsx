@@ -20,7 +20,7 @@ const styles = {
   },
   // "Services" text in the hero
   heroText: {
-    fontFamily: "'Playfair Display', serif",
+    fontFamily: "'Great Vibes', serif",
     fontSize: '5rem',
     fontWeight: 500,
     color: '#fff',
