@@ -27,7 +27,7 @@ const styles = {
   heading: {
     fontFamily: "'Playfair Display', serif", // Heading font set to Playfair Display
     fontSize: '3rem',
-    fontWeight: 400,
+    fontWeight: 500,
     textAlign: 'center',
     marginBottom: '50px',
     color: '#333',
