@@ -104,7 +104,7 @@ const Hero = () => (
 const Gallery = () => {
   // Updated image data with titles and placeholder images
   const galleryImages = [
-    { src: 'portfolio7.jpg', alt: 'Wedding stage with pink and gold theme',  },
+    { src: 'portfolio7.jpeg', alt: 'Wedding stage with pink and gold theme',  },
     { src: 'portfolio2.jpeg', alt: 'Elegant white wedding stage decor',  },
     { src: 'portfolio3.jpg', alt: 'Ceiling decor with flowers and lights', },
     { src: 'portfolio4.jpeg', alt: 'Outdoor event seating arrangement', },

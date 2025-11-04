@@ -105,7 +105,7 @@ const Gallery = () => {
   // Updated image data with titles and placeholder images
   const galleryImages = [
     { src: 'carousel3.jpg', alt: 'Wedding stage with pink and gold theme', title: 'Robin and Jasmine ' },
-    { src: 'carousel5.jpg', alt: 'Elegant white wedding stage decor', title: 'Sruthi and Surendar' },
+    { src: 'carousel5.JPG', alt: 'Elegant white wedding stage decor', title: 'Sruthi and Surendar' },
     { src: 'carousel4.jpeg', alt: 'Ceiling decor with flowers and lights', title: 'Devika and Sanju Krishna' },
     { src: 'carousel8.jpeg', alt: 'Outdoor event seating arrangement', title: 'Anjali and Rahul' },
     { src: 'https://placehold.co/400x400/F5F5DC/6B5B3E?text=Event+5', alt: 'Elegant dinner table setup', title: 'Luxe Dinner Setting' },
