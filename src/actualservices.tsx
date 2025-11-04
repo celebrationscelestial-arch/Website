@@ -206,7 +206,7 @@ const ServicesPage = () => {
     servicesHeading: {
       fontSize: '2.8rem',
       color: '#000', // Black font as requested
-      fontFamily: "'Playfair Display', serif",
+      fontFamily: "'Great Vibes', serif",
       fontWeight: 600,
       margin: 0,
     },
