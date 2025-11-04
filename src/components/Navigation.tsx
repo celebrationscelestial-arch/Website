@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, ChevronDown } from 'lucide-react'; 
-// import { Link } from 'react-router-dom'; // <-- REMOVED this import
+import { Menu, X } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 // Load Google Fonts
 const loadGoogleFonts = () => {
@@ -17,7 +17,7 @@ const Navigation = () => {
   useEffect(() => {
     // Load fonts when component mounts
     loadGoogleFonts();
-    
+
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
@@ -25,26 +25,33 @@ const Navigation = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // --- MODIFIED navItems ---
+  // --- MODIFICATION: Updated navItems array ---
   const navItems = [
-    { name: 'Home', href: '#hero',type :'scroll'},
-    { 
-      name: 'About', 
-      href: '#about',
-      type :'scroll',
-      // Added children for the dropdown
-      children: [
-        { name: 'Our Team', href: '#team', type: 'scroll' }
-      ]
+    { name: 'Home', href: '#hero', type: 'scroll' },
+    {
+      name: 'About',
+      type: 'dropdown', // New type for the dropdown
+      items: [
+        { name: 'Team', href: '/team', type: 'page' },
+        // You could add more items here later, e.g.:
+        // { name: 'Our Story', href: '/story', type: 'page' },
+      ],
     },
-    { name: 'Services', href: '#services',type :'scroll' }, // <-- CHANGED this line
-    // { name: 'Team', href: '#team',type :'scroll' }, // <-- Removed standalone Team
-    { name: 'Testimonials', href: '#testimonials',type :'scroll' },
-    { name: 'Contact', href: '#contact',type :'scroll'},
+    { name: 'Services', href: '/services', type: 'page' },
+    { name: 'Testimonials', href: '#testimonials', type: 'scroll' },
+    { name: 'Contact', href: '#contact', type: 'scroll' },
   ];
+  // --- END MODIFICATION ---
 
   const leftNavItems = navItems.slice(0, 3);
   const rightNavItems = navItems.slice(3);
+
+  // --- MODIFICATION: Made flatMap more explicit ---
+  // Mobile doesn't have hover, so we flatten the dropdown
+  const mobileNavItems = navItems.flatMap(item =>
+    item.type === 'dropdown' ? item.items : [item] // Wrap single item in an array
+  );
+  // --- END MODIFICATION ---
 
   const scrollToSection = (href) => {
     const element = document.querySelector(href);
@@ -54,131 +61,120 @@ const Navigation = () => {
     setIsMenuOpen(false);
   };
 
-  // --- MODIFIED renderNavItem (for Desktop) ---
-  const renderNavItem = (item) => {
-    // Base class string, added flex items-center and space-x-1
-    const className = `px-6 py-3 text-base font-medium transition-all duration-300 hover:bg-white/10 rounded-full transform hover:scale-105 flex items-center space-x-1 ${
+  // --- MODIFICATION: Updated renderNavItem to handle dropdowns ---
+  // Helper function to render a nav item
+  const renderNavItem = (item, isDropdownItem = false) => {
+    // Base classes
+    // --- MODIFICATION: Removed baseStyle variable ---
+    const baseClassName = "transition-all duration-300 text-base font-medium";
+    
+    // Different styles for main nav vs. dropdown item
+    const mainNavItemClassName = `px-6 py-3 hover:bg-white/10 rounded-full transform hover:scale-105 ${
       isScrolled ? 'text-yellow-400 hover:text-white' : 'text-white hover:text-yellow-400'
     }`;
+    const dropdownItemClassName = `block w-full text-left px-4 py-3 rounded-md ${
+      isScrolled ? 'text-yellow-400 hover:text-white' : 'text-white hover:text-yellow-400'
+    } hover:bg-white/20`;
+
+    const className = isDropdownItem ? dropdownItemClassName : mainNavItemClassName;
     
-    // --- If item has children, render dropdown ---
-    if (item.children) {
+    if (item.type === 'page') {
+      // It renders a <Link> for page navigation
+      return (
+        <Link
+          key={item.name}
+          to={item.href} // 'to' prop is used instead of 'href'
+          className={className}
+          style={{ fontFamily: 'Cinzel, serif' }} // --- MODIFICATION: Inlined style ---
+          onClick={() => setIsMenuOpen(false)}
+        >
+          {item.name}
+        </Link>
+      );
+    }
+
+    if (item.type === 'scroll') {
+      // It renders a <button> for scroll navigation
+      return (
+        <button
+          key={item.name}
+          onClick={() => scrollToSection(item.href)}
+          className={className}
+          style={{ fontFamily: 'Cinzel, serif' }} // --- MODIFICATION: Inlined style ---
+        >
+          {item.name}
+        </button>
+      );
+    }
+    
+    if (item.type === 'dropdown' && !isDropdownItem) {
+      // This is the main "About" trigger
       return (
         <div key={item.name} className="relative group">
-          {/* Main "About" button */}
+          {/* This is the "About" button that triggers the hover */}
           <button
-            onClick={() => scrollToSection(item.href)}
-            className={className}
-            style={{ fontFamily: 'Cinzel, serif' }}
+            className={mainNavItemClassName} // Use main nav style
+            style={{ fontFamily: 'Cinzel, serif' }} // --- MODIFICATION: Inlined style ---
           >
-            <span>{item.name}</span>
-            <ChevronDown size={16} className="transition-transform duration-300 group-hover:rotate-180" />
+            {item.name}
+            {/* You could add a dropdown icon here if you like */}
+            {/* <ChevronDown size={16} className="inline ml-1" /> */}
           </button>
-
-          {/* Dropdown Menu */}
-          <div className={`absolute top-full left-1/2 -translate-x-1/2 mt-2 w-48
-                        bg-black/90 backdrop-blur-xl border border-white/10 rounded-lg shadow-2xl overflow-hidden
-                        invisible opacity-0 transform -translate-y-2 
-                        group-hover:visible group-hover:opacity-100 group-hover:translate-y-0
-                        transition-all duration-300 ease-in-out z-50`}
-          >
-            {item.children.map((child) => {
-              // Render the child item ("Our Team")
-              const childClassName = `block w-full text-left px-5 py-3 text-sm transition-all duration-300 ${
-                isScrolled ? 'text-yellow-400 hover:text-white' : 'text-white hover:text-yellow-400'
-              } hover:bg-white/10`;
-
-              // --- FIXED: Replaced Link with <a> ---
-              if (child.type === 'page') {
-                return (
-                  <a
-                    key={child.name}
-                    href={child.href} // <-- Changed from 'to'
-                    className={childClassName}
-                    style={{ fontFamily: 'Cinzel, serif' }}
-                    // onClick is not needed for desktop dropdown link
-                  >
-                    {child.name}
-                  </a>
-                );
-              }
-              return (
-                <button
-                  key={child.name}
-                  onClick={() => scrollToSection(child.href)}
-                  className={childClassName}
-                  style={{ fontFamily: 'Cinzel, serif' }}
-                >
-                  {child.name}
-                </button>
-              );
-            })}
+          
+          {/* The Dropdown Menu */}
+          <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-48 bg-black/80 backdrop-blur-lg rounded-lg shadow-xl border border-white/10 hidden group-hover:block transition-all duration-300 z-50">
+            <div className="p-2">
+              {item.items.map((subItem) => (
+                // Render sub-items with dropdown styling
+                renderNavItem(subItem, true) 
+              ))}
+            </div>
           </div>
         </div>
       );
     }
     
-    // --- If no children, render as normal ---
-    // --- FIXED: Replaced Link with <a> ---
-    if (item.type === 'page') {
-      return (
-        <a
-          key={item.name}
-          href={item.href} // <-- Changed from 'to'
-          // Removed flex/items-center/space-x-1 from here as it's now on the base className
-          className={className.replace("flex items-center space-x-1", "")} 
-          style={{ fontFamily: 'Cinzel, serif' }}
-          // onClick is not needed for desktop link
-        >
-          {item.name}
-        </a>
-      );
-    }
-
-    // It renders a <button> for scroll navigation
-    return (
-      <button
-        key={item.name}
-        onClick={() => scrollToSection(item.href)}
-        // Removed flex/items-center/space-x-1 from here as it's now on the base className
-        className={className.replace("flex items-center space-x-1", "")}
-        style={{ fontFamily: 'Cinzel, serif' }}
-      >
-        {item.name}
-      </button>
-    );
+    return null; // Should not be reached
   };
-  
+  // --- END MODIFICATION ---
+
+  // --- MODIFICATION: Made mobile renderer more robust ---
   // Helper function to render a MOBILE nav item
   const renderMobileNavItem = (item) => {
     const className = "block w-full text-left text-white hover:text-yellow-400 px-4 py-3 text-lg font-medium transition-all duration-300 hover:bg-white/10 rounded-lg";
     
-    // --- FIXED: Replaced Link with <a> ---
     if (item.type === 'page') {
       return (
-        <a
+        <Link
           key={item.name}
-          href={item.href} // <-- Changed from 'to'
+          to={item.href}
           className={className}
-          style={{ fontFamily: 'Cinzel, serif' }}
-          onClick={() => setIsMenuOpen(false)} // <-- Kept this for mobile
+          style={{ fontFamily: 'Cinzel, serif' }} // --- MODIFICATION: Inlined style ---
+          onClick={() => setIsMenuOpen(false)}
         >
           {item.name}
-        </a>
+        </Link>
       );
     }
 
-    return (
-      <button
-        key={item.name}
-        onClick={() => scrollToSection(item.href)}
-        className={className}
-        style={{ fontFamily: 'Cinzel, serif' }}
-      >
-        {item.name}
-      </button>
-    );
+    if (item.type === 'scroll') {
+      return (
+        <button
+          key={item.name}
+          onClick={() => scrollToSection(item.href)}
+          className={className}
+          style={{ fontFamily: 'Cinzel, serif' }} // --- MODIFICATION: Inlined style ---
+        >
+          {item.name}
+        </button>
+      );
+    }
+    
+    // This should not happen if flatMap is correct, but good to have a fallback
+    console.warn("Unknown mobile nav item type:", item);
+    return null;
   };
+  // --- END MODIFICATION ---
 
   return (
     <header
@@ -197,8 +193,8 @@ const Navigation = () => {
             {/* Left Navigation - 40% */}
             <div className="flex-1 max-w-[40%]">
               <div className="flex items-center justify-start space-x-8">
-                {/* This map function now handles dropdowns */}
-                {leftNavItems.map((item) => renderNavItem(item))}
+                {/* --- FIX IS HERE --- */}
+                {leftNavItems.map((item) => renderNavItem(item, false))}
               </div>
             </div>
 
@@ -216,7 +212,7 @@ const Navigation = () => {
                     className="w-20 h-20 object-cover rounded-full"
                   />
                 </div>
-                <h1 className="mt-3 text-l font-bold bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500 bg-clip-text text-transparent tracking-wide whitespace-nowErap" style={{ fontFamily: 'Cinzel, serif' }}>
+                <h1 className="mt-3 text-l font-bold bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500 bg-clip-text text-transparent tracking-wide whitespace-nowrap" style={{ fontFamily: 'Cinzel, serif' }}>
                   Celestial Celebrations
                 </h1>
               </div>
@@ -225,8 +221,8 @@ const Navigation = () => {
             {/* Right Navigation - 40% */}
             <div className="flex-1 max-w-[40%]">
               <div className="flex items-center justify-end space-x-8">
-                {/* This map function now handles dropdowns */}
-                {rightNavItems.map((item) => renderNavItem(item))}
+                {/* --- FIX IS HERE --- */}
+                {rightNavItems.map((item) => renderNavItem(item, false))}
               </div>
             </div>
           </div>
@@ -251,6 +247,7 @@ const Navigation = () => {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
+              // MODIFICATION HERE
               className={`p-2 transition-colors duration-300 ${
                 isScrolled ? 'text-yellow-400 hover:text-white' : 'text-white hover:text-yellow-400'
               }`}
@@ -263,10 +260,9 @@ const Navigation = () => {
           {isMenuOpen && (
             <div className="border-t border-white/10 bg-black/90 backdrop-blur-xl">
               <div className="px-4 py-6 space-y-4">
-                {/* --- MODIFIED Mobile Menu --- */}
-                {/* Use flatMap to list parent and child links separately */}
-                {navItems.flatMap(item => item.children ? [item, ...item.children] : [item]).map((item) => renderMobileNavItem(item))}
-                
+                {/* --- MODIFICATION: Use flattened items --- */}
+                {mobileNavItems.map((item) => renderMobileNavItem(item))}
+                {/* --- END MODIFICATION --- */}
                 <button
                   onClick={() => scrollToSection('#contact')}
                   className="w-full bg-gradient-to-r from-yellow-400 to-yellow-500 text-black px-6 py-3 rounded-full font-semibold mt-6 transition-all duration-300 transform hover:scale-105"
@@ -284,5 +280,4 @@ const Navigation = () => {
 };
 
 export default Navigation;
-
 

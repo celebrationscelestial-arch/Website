@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import App from './App'; // Your main homepage component
 import ServicesPage from './actualservices.tsx'; // Your services page
+import TeamPage from './team.tsx'; // --- ADDED: Import for the new team page ---
 import './index.css';
 
 // 1. Define your "routes" or "URL map"
@@ -16,7 +17,12 @@ const router = createBrowserRouter([
     path: "/services", // The URL for your services page
     element: <ServicesPage />, // Show the <ServicesPage /> component
   },
-  // You can add more routes here
+  // --- ADDED: New route for the team page ---
+  {
+    path: "/team",
+    element: <TeamPage />,
+  },
+  // --- END ADDITION ---
 ]);
 
 // 2. Render the RouterProvider inside your StrictMode
@@ -25,5 +31,3 @@ createRoot(document.getElementById('root')!).render(
     <RouterProvider router={router} />
   </StrictMode>
 );
-
-
