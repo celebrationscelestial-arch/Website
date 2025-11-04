@@ -53,7 +53,7 @@ const Team = () => {
         className="relative h-[50vh] overflow-hidden"
         // --- Replace this URL with your own background image ---
         style={{ 
-          backgroundImage: "url('https://images.unsplash.com/photo-1532378399333-5031b63f10f8?q=80&w=1974&auto=format&fit=crop')", 
+          backgroundImage: "url('team.jpeg')", 
           backgroundSize: 'cover', 
           backgroundPosition: 'center',
           backgroundAttachment: 'fixed' // Optional: Adds a cool parallax effect
