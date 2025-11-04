@@ -6,7 +6,7 @@ const weddingImages = [
   'carousel2.jpg',
   'carousel3.jpg',
   'carousel4.jpeg',
-  'cr5.jpg',
+  'carousel.jpg',
   'carousel6.jpg',
   'carousel7.jpeg',
 ];
