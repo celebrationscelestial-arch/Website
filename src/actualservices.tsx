@@ -11,7 +11,7 @@ const styles = {
   heroSection: {
     height: '50vh',
     // Using a placeholder for the background image
-    backgroundImage: "url('https://placehold.co/1920x540/607D8B/FFFFFF?text=Event+Background')",
+    backgroundImage: "url('services.jpg')",
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     display: 'flex',
