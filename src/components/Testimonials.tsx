@@ -41,7 +41,7 @@ const testimonials = [
   {
     name: 'Robin and Jasmine',
     event: 'Wedding',
-    image: 'robintest.jpg',
+    image: 'robintes.jpg',
     text: '“They are very easy to work with. They did an incredible job. My experience with Celestial was amazing — I didn’t even know such a young, skillful set of people could pull off something so incredible. They are very committed to their work, and it shows.We celebrated with friends and family, and through the whole process they did an incredible job. The venue looked amazing, and I highly, highly recommend them. If you’re getting married, contact these people — they’ll work out everything for you.”',
   },
 ];
