@@ -74,7 +74,7 @@ const styles = {
     fontSize: '1.6rem',
     fontWeight: 600,
     marginBottom: '10px',
-    color: '#000000ff', // Reverted to original color
+    color: '#c7e22dff', // Reverted to original color
   },
   serviceDescription: {
     fontSize: '0.95rem',
@@ -278,5 +278,6 @@ const ServicesPage = () => {
 };
 
 export default ServicesPage;
+
 
 
