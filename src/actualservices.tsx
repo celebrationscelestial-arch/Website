@@ -74,7 +74,7 @@ const styles = {
     fontSize: '1.6rem',
     fontWeight: 600,
     marginBottom: '10px',
-    color: '#444',
+    color: '#e2be2dff',
   },
   serviceDescription: {
     fontSize: '0.95rem',
