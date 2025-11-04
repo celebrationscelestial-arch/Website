@@ -1,92 +1,117 @@
 import React from 'react';
 
-// The main component for the "Why Choose Us" section
-const App = () => {
-  // Data for the feature cards
-  const features = [
-    {
-      title: 'Unforgettable Events by Top Planners',
-      description: 'We craft bespoke events that reflect your unique style, ensuring every detail is flawlessly executed for a truly memorable occasion.',
-      image: 'unforgettable.jpg',
-    },
-    {
-      title: 'Seamless Event Management Solutions',
-      description: 'Our philosophy is one of continuous improvement, leveraging innovative solutions to make every event better than the last.',
-      image: 'seamless.jpg',
-    },
-    {
-      title: 'Exceptional Experiences Delivered',
-      description: 'From grand weddings to intimate gatherings, our passion is creating exceptional experiences that you and your guests will cherish forever.',
-      image: 'exceptional.jpg',
-    }
-  ];
-  
-  // Different background colors for each card to create a distinct stacking look, using your theme
-  const cardBackgrounds = [
-    'bg-white',
-    'bg-slate-50',
-    'bg-white',
-  ];
+// --- Team Member Data ---
+// You can update this array with your team's actual names and titles.
+const teamMembers = [
+  {
+    name: "Aravind S",
+    title: "CEO and Founder",
+    // You could add an image URL here later, e.g.:
+    // imageUrl: 'path/to/founder-image.jpg'
+  },
+  {
+    name: "Gokul Krishnan",
+    title: "Co-Founder & Operations Head",
+    imageUrl: 'gokul.jpeg'
+  },
+  {
+    name: "Akhil Nair ",
+    title: "Design Architect",
+    imageUrl: 'akhil.jpeg'
+  },
+  {
+    name: "Gopakumar",
+    title: "Senior Event Planner",
+    // imageUrl: 'path/to/architect-image.jpg'
+  },
+  {
+    name: "Anjana S",
+    title: "Event Planner",
+    // imageUrl: 'path/to/planner2-image.jpg'
+  },
+  {
+    name: "Sujith P",
+    title: "Production Coordinator",
+    // imageUrl: 'path/to/planner3-image.jpg'
+  }
+];
 
+// --- SVG Icon for Placeholder ---
+const UserIcon = () => (
+  <svg className="w-16 h-16 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+    <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd"></path>
+  </svg>
+);
+
+const Team = () => {
   return (
-    // The main section now has a background image. 
-    // IMPORTANT: Replace '/event-background.jpg' with the path to your image.
-    <section 
-      id="why-choose-us" 
-      className="relative bg-cover bg-center bg-fixed"
-      style={{ backgroundImage: "url('team.jpeg')" }}
-    >
-      
-      {/* 1. Initial Header View */}
-      <div className="min-h-[75vh] flex flex-col justify-center items-center text-center p-4 relative">
-        {/* The decorative blurs are removed as they conflict with a background image. */}
-        {/* You can re-add them if you like the effect. */}
+    <section id="team" className="py-24 bg-white">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         
-        {/* Added a "frosted glass" container for text readability */}
-        <div className="relative z-10 bg-white/60 backdrop-blur-md p-8 lg:p-12 rounded-2xl shadow-xl max-w-4xl mx-auto">
-            <h2 className="text-5xl lg:text-6xl font-serif font-bold text-gray-800">
-                Why Choose Us
-            </h2>
-            <div className="w-24 h-1 bg-amber-400 mx-auto rounded-full my-6"></div>
-            <p className="text-xl font-sans text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                Your vision is our mission. We bring expertise, creativity, and dedication to every event.
-            </p>
-            <div className="mt-12 text-gray-500 flex flex-col items-center gap-2">
-    
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-                </svg>
-            </div>
-        </div>
-      </div>
+        {/* === MODIFIED HEADER === */}
+        <header 
+          className="mb-16 rounded-xl shadow-lg overflow-hidden relative py-20 px-6"
+          // --- Replace this URL with your own background image ---
+          style={{ 
+            backgroundImage: "url('team.jpeg')", 
+            backgroundSize: 'cover', 
+            backgroundPosition: 'center' 
+          }}
+        >
+          {/* Dark Overlay for readability */}
+          <div className="absolute inset-0 bg-black opacity-60"></div>
 
-      {/* 2. Sticky Scrolling Container */}
-      {/* This container holds the cards that will stack on top of each other */}
-      <div className="relative">
-        {features.map((feature, index) => (
-          // Each card is set to 'sticky' and will stick to the top of the viewport when scrolled to.
-          <div key={index} className="sticky top-0 h-screen w-full">
-            <div className={`h-full w-full flex items-center justify-center p-8 lg:p-16 ${cardBackgrounds[index % cardBackgrounds.length]}`}>
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto items-center">
-                
-                {/* Image container - alternates position based on index */}
-                <div className={`w-full h-[60vh] rounded-2xl overflow-hidden shadow-2xl ${index % 2 === 0 ? 'lg:order-1' : 'lg:order-2'}`}>
-                  <img src={feature.image} alt={feature.title} className="w-full h-full object-cover" />
-                </div>
-                
-                {/* Text content container - alternates position based on index, using your theme's fonts/colors */}
-                <div className={`text-gray-800 ${index % 2 === 0 ? 'lg:order-2' : 'lg:order-1'}`}>
-                  <h3 className="text-4xl lg:text-5xl font-serif font-bold mb-6 text-gray-800">{feature.title}</h3>
-                  <p className="text-lg lg:text-xl font-sans text-gray-600 leading-relaxed">{feature.description}</p>
-                </div>
-
-              </div>
+          {/* Header Content (must be relative to sit on top of the overlay) */}
+          <div className="relative">
+            <h1 className="font-great-vibes text-5xl md:text-7xl text-white mb-6">
+              Meet Our Creative Team ✨
+            </h1>
+            <div className="max-w-3xl mx-auto">
+              <p className="text-lg text-gray-200 leading-relaxed font-serif">
+                The meticulous planners and creative minds dedicated to bringing your celestial celebration to life.
+              </p>
             </div>
           </div>
-        ))}
+        </header>
+        {/* === END OF MODIFIED HEADER === */}
+
+
+        {/* --- Team Grid Section (Unchanged) --- */}
+        <main>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+            {teamMembers.map((member, index) => (
+              <div key={index} className="flex flex-col items-center text-center group">
+                
+                {/* Image Placeholder */}
+                <div className="relative w-48 h-48 rounded-full bg-gray-100 mb-5 flex items-center justify-center overflow-hidden border-2 border-gray-200 transition-all duration-300 group-hover:shadow-lg group-hover:scale-105">
+                  {member.imageUrl ? (
+                    <img 
+                      src={member.imageUrl} 
+                      alt={member.name} 
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    <UserIcon />
+                  )}
+                </div>
+                
+                {/* Name Placeholder */}
+                <h3 className="text-2xl font-serif text-gray-800 font-medium">
+                  {member.name}
+                </h3>
+                
+                {/* Title */}
+                <p className="text-base text-gray-500 font-serif italic">
+                  {member.title}
+                </p>
+
+              </div>
+            ))}
+          </div>
+        </main>
       </div>
     </section>
   );
 };
 
-export default App;
+export default Team;
