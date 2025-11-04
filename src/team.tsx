@@ -117,10 +117,10 @@ const Team = () => {
                   {member.name}
                 </h3>
                 
-                {/* Title */}
+                {/* Title (Corrected closing tag) */}
                 <p className="text-base text-gray-500 font-serif italic">
                   {member.title}
-                </Top>
+                </p>
 
               </div>
             ))}
