@@ -36,10 +36,10 @@ const About = () => {
           </h1>
           <div className="max-w-3xl mx-auto space-y-4">
             <p className="text-lg text-gray-600 leading-relaxed font-serif">
-              From small intimate gatherings to large and lavish affairs, our weddings and parties are memorable, magical experiences, perfectly planned and beautifully executed.
+             At Celestial Celebrations, we believe every moment deserves to shine as brightly as the stars. Our mission is to craft unforgettable experiences that blend beauty, meaning, and wonder — whether it’s a wedding under the night sky, a themed gala, or a private celebration inspired by the cosmos.
             </p>
             <p className="text-lg text-gray-600 leading-relaxed font-serif">
-              Make your 'dreams come true' day more momentous and bewitching. Let your magical moments turn into something undeniable! If you have been looking for the right place to culminate your dream day, you are in the right place. Fulfill your wedding dreams with us, and make it a landmark in your journey of life!
+             Founded on a passion for creativity and connection, Celestial Celebrations brings together artful design, meticulous planning, and a touch of celestial magic. We curate every detail — from lighting and décor to music and atmosphere — to ensure your event feels truly out of this world.
             </p>
           </div>
         </header>
