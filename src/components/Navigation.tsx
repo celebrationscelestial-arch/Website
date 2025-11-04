@@ -37,7 +37,7 @@ const Navigation = () => {
         { name: 'Our Team', href: '#team', type: 'scroll' }
       ]
     },
-    { name: 'Services', href: '/services',type :'page' },
+    { name: 'Services', href: '#services',type :'scroll' }, // <-- CHANGED this line
     // { name: 'Team', href: '#team',type :'scroll' }, // <-- Removed standalone Team
     { name: 'Testimonials', href: '#testimonials',type :'scroll' },
     { name: 'Contact', href: '#contact',type :'scroll'},
@@ -284,4 +284,5 @@ const Navigation = () => {
 };
 
 export default Navigation;
+
 
