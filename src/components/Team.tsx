@@ -34,7 +34,7 @@ const App = () => {
     <section 
       id="why-choose-us" 
       className="relative bg-cover bg-center bg-fixed"
-      style={{ backgroundImage: "url('bg2.jpeg')" }}
+      style={{ backgroundImage: "url('team.jpeg')" }}
     >
       
       {/* 1. Initial Header View */}
