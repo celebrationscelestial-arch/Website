@@ -7,7 +7,7 @@ const App = () => {
     {
       title: 'Unforgettable Events by Top Planners',
       description: 'We craft bespoke events that reflect your unique style, ensuring every detail is flawlessly executed for a truly memorable occasion.',
-      image: 'carousel2.jpg',
+      image: 'unforgettable.jpg',
     },
     {
       title: 'Seamless Event Management Solutions',
