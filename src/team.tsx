@@ -16,7 +16,7 @@ const teamMembers = [
   },
   {
     name: "Akhil Nair ",
-    title: "Design Architext",
+    title: "Design Architect",
     imageUrl: 'akhil.jpeg'
   },
   {

@@ -29,13 +29,13 @@ const testimonials = [
   {
     name: 'Malini and Pradeep',
     event: 'Wedding',
-    image: 'logo2.png',
+    image: 'malini.jpeg',
     text: '“Our traditional Nair wedding in Thrissur was given a modern twist by Celestial Celebrations. The combination of brass lamps, banana leaf décor, and chic floral arrangements was stunning. The coordination between the catering, photographers, and musicians was seamless. We were free to just enjoy the rituals without stress."',
   },
   {
     name: 'Sona & Anoop',
     event: 'Marriage',
-    image: 'logo2.png',
+    image: 'sona.jpeg',
     text: '“Our hill-station wedding in Munnar was a dream. The décor was minimal yet breathtaking, perfectly matching the misty surroundings. The team ensured smooth coordination with the resort and vendors, making it stress-free for us. Guests still say it was one of the most serene weddings they’ve attended.”',
   },
   {
@@ -115,7 +115,7 @@ export default function App() {
             <img
               src={testimonials[currentIndex].image}
               alt={testimonials[currentIndex].name}
-              className="w-32 h-32 rounded-lg object-cover shadow-lg mb-6"
+              className="w-40 h-40 rounded-lg object-cover shadow-lg mb-6"
             />
             
             <div className="text-6xl text-amber-700 mb-4" style={{ fontFamily: 'serif' }}></div>
