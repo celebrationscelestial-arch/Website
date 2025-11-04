@@ -109,7 +109,7 @@ const Gallery = () => {
     { src: 'portfolio3.jpg', alt: 'Ceiling decor with flowers and lights', },
     { src: 'portfolio4.jpeg', alt: 'Outdoor event seating arrangement', },
     { src: 'portfolio5.jpeg', alt: 'Elegant dinner table setup',  },
-    { src: 'portfolio6.jpeg', alt: 'Outdoor wedding ceremony arch',  },
+    { src: 'portfolio6.jpg', alt: 'Outdoor wedding ceremony arch',  },
 
   ];
 

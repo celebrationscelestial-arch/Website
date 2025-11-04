@@ -7,7 +7,7 @@ const styles = {
   appContainer: {
     fontFamily: "'Inter', sans-serif",
     // IMPORTANT: Change this URL to your desired background image.
-    backgroundImage: "url('bg1.png')",
+    backgroundImage: "url('bg1.jpg')",
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     backgroundAttachment: 'fixed', // This keeps the background still when you scroll
