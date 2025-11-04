@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight } from 'lucide-react'; // Removed 'Play' and 'useState'
+import { ArrowRight } from 'lucide-react';
 
 const Hero = () => {
   const scrollToContact = () => {
@@ -8,26 +8,25 @@ const Hero = () => {
       element.scrollIntoView({ behavior: 'smooth' });
     }
   };
-  // REMOVED: const [playVideo, setPlayVideo] = useState(true);
 
- return (
-   // REMOVED: bg-pearl-gradient
-   <section id="hero" className="relative min-h-screen flex items-center overflow-hidden">
-    
-      {/* --- YOUTUBE IFRAME WITH CSS HACK TO HIDE TITLE BAR --- */}
+  return (
+    // This is now the single root element.
+    // I'm using <section> since you had a closing </section> tag.
+    // It's relative, so the absolute children will be positioned inside it.
+    <section className="relative w-full h-screen overflow-hidden">
+
+      {/* 1. The Video Background */}
       <iframe 
-        className="absolute z-0 w-full object-cover h-[calc(100%+120px)] -top-[60px]" 
-        src="https://www.youtube.com/embed/TD402-YW9AQ?si=WFCMdA0j0V9FsR4J?autoplay=1&mute=1&loop=1&playsinline=1&controls=0&rel=0&playlist=pk_RCOexuac&vq=hd720" 
-        title="Hero background video" 
-        frameBorder="0" 
+        className="absolute z-0 w-full h-[calc(100%+120px)] -top-[60px] pointer-events-none" 
+        src="https://www.youtube.com/embed/TD402-YW9AQ?autoplay=1&mute=1&loop=1&playsinline=1&controls=0&rel=0&playlist=TD402-YW9AQ&vq=hd720" 
+        title="Hero background video"  
         allow="autoplay; encrypted-media" 
       ></iframe>
-
  
-      {/* --- This overlay is good, it stays --- */}
+      {/* 2. The Dark Overlay (NOW INSIDE the parent) */}
       <div className="absolute inset-0 bg-black/40 z-5"></div>
 
-      {/* This button remains on top (z-20) and is unchanged */}
+      {/* 3. The Button (NOW INSIDE the parent) */}
       <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 z-20">
         <button
           onClick={scrollToContact}
@@ -37,9 +36,9 @@ const Hero = () => {
           <ArrowRight className="h-5 w-5 group-hover:translate-x-3 transition-transform duration-700" />
         </button>
       </div>
-    </section>
-  );
 
+    </section> // This closing tag now correctly matches the opening <section>
+  );
 };
 
 export default Hero;
