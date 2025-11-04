@@ -68,12 +68,23 @@ const Team = () => {
         */}
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center h-full flex flex-col justify-center">
           <h1 className="font-great-vibes text-5xl md:text-7xl text-white mb-6">
-            Meet Our Creative Team 
+            Meet Our Creative Team ✨
           </h1>
           <div className="max-w-3xl mx-auto">
             <p className="text-lg text-gray-200 leading-relaxed font-serif">
               The meticulous planners and creative minds dedicated to bringing your celestial celebration to life.
             </p>
+
+            {/* === ADDED DECORATIVE LINES === */}
+            {/* Centered container for the lines */}
+            <div className="flex flex-col items-center mt-6">
+              {/* Big line */}
+              <div className="w-24 h-0.5 bg-gray-300 opacity-75"></div>
+              {/* Small line */}
+              <div className="w-16 h-0.5 bg-gray-300 opacity-75 mt-2"></div>
+            </div>
+            {/* === END OF ADDED LINES === */}
+
           </div>
         </div>
       </header>
@@ -109,7 +120,7 @@ const Team = () => {
                 {/* Title */}
                 <p className="text-base text-gray-500 font-serif italic">
                   {member.title}
-                </p>
+                </Top>
 
               </div>
             ))}
