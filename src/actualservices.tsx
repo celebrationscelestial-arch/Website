@@ -22,10 +22,10 @@ const styles = {
   heroText: {
     fontFamily: "'Great Vibes', serif",
     fontSize: '5rem',
-    fontWeight: 500,
+    fontWeight: 300,
     color: '#fff',
     textAlign: 'center',
-    textShadow: '0 4px 10px rgba(0,0,0,0.5)', // Adds readability
+    textShadow: '0 4px 10px #e2c12dff)', // Adds readability
   },
   // White container for the services grid
   servicesGridContainer: {
@@ -74,7 +74,7 @@ const styles = {
     fontSize: '1.6rem',
     fontWeight: 600,
     marginBottom: '10px',
-    color: '#e2be2dff',
+    color: '#000000ff',
   },
   serviceDescription: {
     fontSize: '0.95rem',
