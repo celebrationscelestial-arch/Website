@@ -68,7 +68,7 @@ const Team = () => {
         */}
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center h-full flex flex-col justify-center">
           <h1 className="font-great-vibes text-5xl md:text-7xl text-white mb-6">
-            Meet Our Creative Team ✨
+            Meet Our Creative Team 
           </h1>
           <div className="max-w-3xl mx-auto">
             <p className="text-lg text-gray-200 leading-relaxed font-serif">

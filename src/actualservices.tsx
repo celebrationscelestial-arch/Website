@@ -11,7 +11,7 @@ const styles = {
   heroSection: {
     height: '50vh',
     // Using a placeholder for the background image
-    backgroundImage: "url('services.jpg')",
+    backgroundImage: "url('services.jpg')", // Reverted to original
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     display: 'flex',
@@ -25,7 +25,7 @@ const styles = {
     fontWeight: 300,
     color: '#fff',
     textAlign: 'center',
-    textShadow: '0 4px 10px #e2c12dff)', // Adds readability
+    textShadow: '0 4px 10px #e2c12d', // Reverted to original (and fixed typo)
   },
   // White container for the services grid
   servicesGridContainer: {
@@ -36,14 +36,14 @@ const styles = {
     width: '100%',
     margin: '0 auto', // Center the container
     boxShadow: '0 10px 30px rgba(0,0,0,0.05)',
-    marginTop: '-80px', // Pulls it up to overlap the hero slightly (optional, but looks good)
+    marginTop: '-80px', // Pulls it up to overlap the hero slightly
     position: 'relative', // Needed for stacking context
     zIndex: 2, // Ensure it's above the hero
   },
   // Grid layout for the cards
   servicesGrid: {
     display: 'grid',
-    gridTemplateColumns: 'repeat(3, 1fr)', // Set to exactly 3 columns per row
+    gridTemplateColumns: 'repeat(3, 1fr)', // Reverted to 3 columns
     gap: '30px',
   },
   // Individual service card styling
@@ -74,7 +74,7 @@ const styles = {
     fontSize: '1.6rem',
     fontWeight: 600,
     marginBottom: '10px',
-    color: '#c7e22dff',
+    color: '#000000ff', // Reverted to original color
   },
   serviceDescription: {
     fontSize: '0.95rem',
@@ -87,7 +87,7 @@ const styles = {
 
 // --- COMPONENTS ---
 
-// Service Card Component (No changes)
+// Service Card Component
 const ServiceCard = ({ image, title, description }) => (
   <div style={styles.serviceCard}
        onMouseEnter={(e) => {
@@ -98,7 +98,12 @@ const ServiceCard = ({ image, title, description }) => (
          e.currentTarget.style.transform = 'translateY(0)';
          e.currentTarget.style.boxShadow = '0 4px 15px rgba(0,0,0,0.08)';
        }}>
-    <img src={image} alt={title} style={styles.serviceImage} />
+    <img 
+      src={image} 
+      alt={title} 
+      style={styles.serviceImage} 
+      // Add a placeholder fallback (REMOVED)
+    />
     <div style={styles.serviceContent}>
       <h3 style={styles.serviceTitle}>{title}</h3>
       <p style={styles.serviceDescription}>{description}</p>
@@ -108,7 +113,7 @@ const ServiceCard = ({ image, title, description }) => (
 
 // Services Page Component
 const ServicesPage = () => {
-  // Updated image paths as requested (No changes)
+  // Updated image paths as requested (Reverted to original)
   const servicesData = [
     {
       image: 'custom-invitation-design.jpeg',
@@ -192,7 +197,7 @@ const ServicesPage = () => {
     },
   ];
 
-  // --- NEW STYLES ADDED FOR THE REQUESTED SECTION ---
+  // --- STYLES FOR THE INTRO SECTION ---
   const newStyles = {
     introSectionContainer: {
       textAlign: 'center',
@@ -206,7 +211,7 @@ const ServicesPage = () => {
     servicesHeading: {
       fontSize: '2.8rem',
       color: '#000', // Black font as requested
-      fontFamily: "'Great Vibes', serif",
+      fontFamily: "'Playfair Display', serif", // <<< CHANGED as requested
       fontWeight: 600,
       margin: 0,
     },
@@ -223,8 +228,8 @@ const ServicesPage = () => {
       margin: '4px auto 0', // 4px below first line
     },
     quote: {
-      fontSize: '1.1rem',
-      fontFamily: "'Inter', sans-serif",
+      fontSize: '1.5rem', // Slightly larger to fit the font
+      fontFamily: "'Great Vibes', serif", // <<< CHANGED as requested
       color: '#555',
       fontStyle: 'italic',
       maxWidth: '700px',
@@ -242,6 +247,7 @@ const ServicesPage = () => {
       </div>
 
       {/* --- NEWLY ADDED INTRO SECTION --- */}
+      {/* The structure is unchanged, as the quote should be visible with just the font change. */}
       <div style={newStyles.introSectionContainer}>
         <div style={newStyles.headingContainer}>
           <h2 style={newStyles.servicesHeading}>Services</h2>
@@ -254,9 +260,8 @@ const ServicesPage = () => {
       </div>
       {/* --- END OF NEWLY ADDED SECTION --- */}
 
-      {/* 2. Services Grid Section (Unchanged) */}
+      {/* 2. Services Grid Section */}
       <div style={styles.servicesGridContainer}>
-        {/* The 'Services' h2 heading is removed as it's now in the hero */}
         <div style={styles.servicesGrid}>
           {servicesData.map((service, index) => (
             <ServiceCard
@@ -273,3 +278,5 @@ const ServicesPage = () => {
 };
 
 export default ServicesPage;
+
+

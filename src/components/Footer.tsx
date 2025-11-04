@@ -115,7 +115,7 @@ const Footer = () => {
               <div className="flex items-start space-x-3">
                 <MapPin className="h-6 w-6 text-divine-gold mt-1 flex-shrink-0" />
                 <div className="text-gray-300 font-inter">
-                  <p>Pathatipalam,</p>
+                  <p>Pathadipalam,</p>
                   <p>Thykkavu, Edappally, Kochi</p>
                 </div>
               </div>
