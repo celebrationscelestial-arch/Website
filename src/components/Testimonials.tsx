@@ -1,155 +1,117 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
-// --- STYLING ---
-// Style for the main h2 title, replicating the 'Portfolio' text style
-const titleStyle = {
-  fontFamily: "'Playfair Display', serif",
-  fontSize: '3rem',
-  fontWeight: 400,
-  color: 'white',
-  textShadow: '2px 2px 8px rgba(0, 0, 0, 0.7)',
-  marginBottom: '1rem',
-};
-
-
-// --- DATA ---
-const testimonials = [
+// --- Team Member Data ---
+// You can update this array with your team's actual names and titles.
+const teamMembers = [
   {
-    name: 'Ajith and Reshma ',
-    event: 'Wedding Reception',
-    image: 'ajith.jpeg',
-    text: '“Our reception by the Alappuzha backwaters was straight out of a postcard. Celestial Celebrations designed an ambience with fairy lights, soft music, and elegant table settings that left our guests mesmerized. The entire event ran smoothly, and we didn’t have to worry about a thing.”',
+    name: "Aravind S",
+    title: "CEO and Founder",
+    // You could add an image URL here later, e.g.:
+    // imageUrl: 'path/to/founder-image.jpg'
   },
   {
-    name: 'Devika and Sanju Krishna',
-    event: 'Wedding',
-    image: 'devikatest.jpeg',
-    text: '“Choosing Celestial Celebrations was the best decision we made. Every ritual was handled with deep respect and flawless timing — from the traditional kuthuvala to the intimate reception — and the décor was nothing short of magical. Guests kept asking who planned it. Heartfelt thanks to the team for making our day perfect!”  ',
+    name: "Gokul Krishnan",
+    title: "Co-Founder & Operations Head",
+    imageUrl: 'gokul.jpeg'
   },
   {
-    name: 'Malini and Pradeep',
-    event: 'Wedding',
-    image: 'malini.jpeg',
-    text: '“Our traditional Nair wedding in Thrissur was given a modern twist by Celestial Celebrations. The combination of brass lamps, banana leaf décor, and chic floral arrangements was stunning. The coordination between the catering, photographers, and musicians was seamless. We were free to just enjoy the rituals without stress."',
+    name: "Akhil Nair ",
+    title: "Design Architect",
+    imageUrl: 'akhil.jpeg'
   },
   {
-    name: 'Sona & Anoop',
-    event: 'Marriage',
-    image: 'sona.jpeg',
-    text: '“Our hill-station wedding in Munnar was a dream. The décor was minimal yet breathtaking, perfectly matching the misty surroundings. The team ensured smooth coordination with the resort and vendors, making it stress-free for us. Guests still say it was one of the most serene weddings they’ve attended.”',
+    name: "Gopakumar",
+    title: "Senior Event Planner",
+    // imageUrl: 'path/to/architect-image.jpg'
   },
   {
-    name: 'Robin and Jasmine',
-    event: 'Wedding',
-    image: 'robintes.jpg',
-    text: '“They are very easy to work with. They did an incredible job. My experience with Celestial was amazing — I didn’t even know such a young, skillful set of people could pull off something so incredible. They are very committed to their work, and it shows.We celebrated with friends and family, and through the whole process they did an incredible job. The venue looked amazing, and I highly, highly recommend them. If you’re getting married, contact these people — they’ll work out everything for you.”',
+    name: "Anjana S",
+    title: "Event Planner",
+    // imageUrl: 'path/to/planner2-image.jpg'
   },
+  {
+    name: "Sujith P",
+    title: "Production Coordinator",
+    // imageUrl: 'path/to/planner3-image.jpg'
+  }
 ];
 
+// --- SVG Icon for Placeholder ---
+const UserIcon = () => (
+  <svg className="w-16 h-16 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+    <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd"></path>
+  </svg>
+);
 
-// --- COMPONENT ---
-export default function App() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % testimonials.length);
-    }, 5000);
-
-    return () => clearInterval(timer);
-  }, []);
-
-  const goToPrevious = () => {
-    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-  };
-
-  const goToNext = () => {
-    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
-  };
-
-  const goToSlide = (index) => {
-    setCurrentIndex(index);
-  };
-
+const Team = () => {
   return (
-    <div
-      className="min-h-screen flex items-center justify-center py-20 px-4"
-      style={{
-        // Changed the gradient from light to dark to make the white text pop
-        backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('testimonial.webp')",
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundAttachment: 'fixed',
-      }}
-    >
-      <div className="max-w-4xl w-full">
-        {/* Header */}
-        <div className="text-center mb-16">
-          {/* Applied the new styling here, removed conflicting Tailwind classes */}
-          <h2 style={titleStyle}>
-            What Our Clients Say
-          </h2>
-        </div>
+    <section id="team" className="py-24 bg-white">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        
+        {/* === MODIFIED HEADER === */}
+        <header 
+          className="mb-16 rounded-xl shadow-lg overflow-hidden relative py-20 px-6"
+          // --- Replace this URL with your own background image ---
+          style={{ 
+            backgroundImage: "url('https://images.unsplash.com/photo-1532378399333-5031b63f10f8?q=80&w=1974&auto=format&fit=crop')", 
+            backgroundSize: 'cover', 
+            backgroundPosition: 'center' 
+          }}
+        >
+          {/* Dark Overlay for readability */}
+          <div className="absolute inset-0 bg-black opacity-60"></div>
 
-        {/* Carousel Container */}
-        <div className="relative">
-          {/* Navigation Buttons */}
-          <button
-            onClick={goToPrevious}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12 z-10 w-12 h-12 rounded-full bg-white/80 backdrop-blur-sm border-2 border-amber-700 text-amber-700 flex items-center justify-center text-2xl hover:bg-amber-700 hover:text-white transition-all duration-300 shadow-lg"
-            aria-label="Previous testimonial"
-          >
-            ‹
-          </button>
-
-          <button
-            onClick={goToNext}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-12 z-10 w-12 h-12 rounded-full bg-white/80 backdrop-blur-sm border-2 border-amber-700 text-amber-700 flex items-center justify-center text-2xl hover:bg-amber-700 hover:text-white transition-all duration-300 shadow-lg"
-            aria-label="Next testimonial"
-          >
-            ›
-          </button>
-
-          {/* Testimonial Card */}
-          <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl p-12 min-h-[500px] flex flex-col items-center justify-center">
-            <img
-              src={testimonials[currentIndex].image}
-              alt={testimonials[currentIndex].name}
-              className="w-40 h-40 rounded-lg object-cover shadow-lg mb-6"
-            />
-            
-            <div className="text-6xl text-amber-700 mb-4" style={{ fontFamily: 'serif' }}></div>
-            
-            <p className="text-lg text-gray-700 text-center leading-relaxed mb-8 max-w-2xl">
-              {testimonials[currentIndex].text}
-            </p>
-            
-            <h3 className="text-xl font-bold text-gray-800">
-              {testimonials[currentIndex].name}
-            </h3>
-            
-            <p className="text-sm text-gray-600 mt-1">
-              {testimonials[currentIndex].event}
-            </p>
+          {/* Header Content (must be relative to sit on top of the overlay) */}
+          <div className="relative">
+            <h1 className="font-great-vibes text-5xl md:text-7xl text-white mb-6">
+              Meet Our Creative Team ✨
+            </h1>
+            <div className="max-w-3xl mx-auto">
+              <p className="text-lg text-gray-200 leading-relaxed font-serif">
+                The meticulous planners and creative minds dedicated to bringing your celestial celebration to life.
+              </p>
+            </div>
           </div>
+        </header>
+        {/* === END OF MODIFIED HEADER === */}
 
-          {/* Dots Navigation */}
-          <div className="flex justify-center gap-3 mt-8">
-            {testimonials.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => goToSlide(index)}
-                className={`h-1 rounded-full transition-all duration-300 ${
-                  index === currentIndex
-                    ? 'w-8 bg-white'
-                    : 'w-6 bg-white/50 hover:bg-white/75'
-                }`}
-                aria-label={`Go to testimonial ${index + 1}`}
-              />
+
+        {/* --- Team Grid Section (Unchanged) --- */}
+        <main>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+            {teamMembers.map((member, index) => (
+              <div key={index} className="flex flex-col items-center text-center group">
+                
+                {/* Image Placeholder */}
+                <div className="relative w-48 h-48 rounded-full bg-gray-100 mb-5 flex items-center justify-center overflow-hidden border-2 border-gray-200 transition-all duration-300 group-hover:shadow-lg group-hover:scale-105">
+                  {member.imageUrl ? (
+                    <img 
+                      src={member.imageUrl} 
+                      alt={member.name} 
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    <UserIcon />
+                  )}
+                </div>
+                
+                {/* Name Placeholder */}
+                <h3 className="text-2xl font-serif text-gray-800 font-medium">
+                  {member.name}
+                </h3>
+                
+                {/* Title */}
+                <p className="text-base text-gray-500 font-serif italic">
+                  {member.title}
+                </p>
+
+              </div>
             ))}
           </div>
-        </div>
+        </main>
       </div>
-    </div>
+    </section>
   );
-}
+};
+
+export default Team;
