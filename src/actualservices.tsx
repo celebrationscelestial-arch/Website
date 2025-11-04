@@ -87,11 +87,8 @@ const styles = {
 
 // --- COMPONENTS ---
 
-// Service Card Component (No changes needed)
+// Service Card Component (No changes)
 const ServiceCard = ({ image, title, description }) => (
-  // Applying hover effect via inline styles is tricky.
-  // For a real app, this should be done with CSS or a CSS-in-JS library.
-  // I'm keeping the base style from your original 'styles.serviceCard'.
   <div style={styles.serviceCard}
        onMouseEnter={(e) => {
          e.currentTarget.style.transform = 'translateY(-5px)';
@@ -111,7 +108,7 @@ const ServiceCard = ({ image, title, description }) => (
 
 // Services Page Component
 const ServicesPage = () => {
-  // Updated image paths as requested
+  // Updated image paths as requested (No changes)
   const servicesData = [
     {
       image: 'custom-invitation-design.jpeg',
@@ -195,14 +192,69 @@ const ServicesPage = () => {
     },
   ];
 
+  // --- NEW STYLES ADDED FOR THE REQUESTED SECTION ---
+  const newStyles = {
+    introSectionContainer: {
+      textAlign: 'center',
+      padding: '50px 20px 30px', // Adds space between hero and grid container
+      backgroundColor: '#fff', // Matches page background
+    },
+    headingContainer: {
+      display: 'inline-block', // Keeps underlines contained to the text width
+      marginBottom: '25px', // Space between underlines and quote
+    },
+    servicesHeading: {
+      fontSize: '2.8rem',
+      color: '#000', // Black font as requested
+      fontFamily: "'Playfair Display', serif",
+      fontWeight: 600,
+      margin: 0,
+    },
+    underline1: {
+      height: '2px',
+      width: '100%', // First line, matches heading width
+      backgroundColor: '#000',
+      margin: '8px auto 0', // 8px below text
+    },
+    underline2: {
+      height: '2px',
+      width: '70%', // Second line, "slightly smaller"
+      backgroundColor: '#000',
+      margin: '4px auto 0', // 4px below first line
+    },
+    quote: {
+      fontSize: '1.1rem',
+      fontFamily: "'Inter', sans-serif",
+      color: '#555',
+      fontStyle: 'italic',
+      maxWidth: '700px',
+      margin: '0 auto', // Center the quote
+      lineHeight: '1.6',
+    }
+  };
+  // --- END OF NEW STYLES ---
+
   return (
     <div style={styles.servicesPageContainer}>
-      {/* 1. Hero Section */}
+      {/* 1. Hero Section (Unchanged) */}
       <div style={styles.heroSection}>
         <h1 style={styles.heroText}>Services</h1>
       </div>
 
-      {/* 2. Services Grid Section */}
+      {/* --- NEWLY ADDED INTRO SECTION --- */}
+      <div style={newStyles.introSectionContainer}>
+        <div style={newStyles.headingContainer}>
+          <h2 style={newStyles.servicesHeading}>Services</h2>
+          <div style={newStyles.underline1}></div>
+          <div style={newStyles.underline2}></div>
+        </div>
+        <p style={newStyles.quote}>
+          "Crafting your vision into an unforgettable reality. We handle the details, you live the moment."
+        </p>
+      </div>
+      {/* --- END OF NEWLY ADDED SECTION --- */}
+
+      {/* 2. Services Grid Section (Unchanged) */}
       <div style={styles.servicesGridContainer}>
         {/* The 'Services' h2 heading is removed as it's now in the hero */}
         <div style={styles.servicesGrid}>
