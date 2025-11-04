@@ -48,19 +48,35 @@ const Team = () => {
     <section id="team" className="py-24 bg-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         
-        {/* Header - Themed like About.jsx */}
-        <header className="mb-16">
-          <h1 className="font-great-vibes text-5xl md:text-7xl text-gray-800 mb-6">
-            Meet Our Creative Team ✨
-          </h1>
-          <div className="max-w-3xl mx-auto">
-            <p className="text-lg text-gray-600 leading-relaxed font-serif">
-              The meticulous planners and creative minds dedicated to bringing your celestial celebration to life.
-            </p>
+        {/* === MODIFIED HEADER === */}
+        <header 
+          className="mb-16 rounded-xl shadow-lg overflow-hidden relative py-20 px-6"
+          // --- Replace this URL with your own background image ---
+          style={{ 
+            backgroundImage: "url('team.jpeg')", 
+            backgroundSize: 'cover', 
+            backgroundPosition: 'center' 
+          }}
+        >
+          {/* Dark Overlay for readability */}
+          <div className="absolute inset-0 bg-black opacity-60"></div>
+
+          {/* Header Content (must be relative to sit on top of the overlay) */}
+          <div className="relative">
+            <h1 className="font-great-vibes text-5xl md:text-7xl text-white mb-6">
+              Meet Our Creative Team ✨
+            </h1>
+            <div className="max-w-3xl mx-auto">
+              <p className="text-lg text-gray-200 leading-relaxed font-serif">
+                The meticulous planners and creative minds dedicated to bringing your celestial celebration to life.
+              </p>
+            </div>
           </div>
         </header>
+        {/* === END OF MODIFIED HEADER === */}
 
-        {/* --- Team Grid Section --- */}
+
+        {/* --- Team Grid Section (Unchanged) --- */}
         <main>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {teamMembers.map((member, index) => (
