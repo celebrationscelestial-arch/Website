@@ -4,34 +4,34 @@ import React from 'react';
 // You can update this array with your team's actual names and titles.
 const teamMembers = [
   {
-    name: "[Founder Name]",
-    title: "Founder & Lead Visionary",
+    name: "Aravind S",
+    title: "CEO and Founder",
     // You could add an image URL here later, e.g.:
     // imageUrl: 'path/to/founder-image.jpg'
   },
   {
-    name: "[Co-Founder Name]",
+    name: "Gokul Krishnan",
     title: "Co-Founder & Operations Head",
-    // imageUrl: 'path/to/cofounder-image.jpg'
+    imageUrl: 'gokul.jpeg'
   },
   {
-    name: "[Planner Name 1]",
+    name: "Akhil Nair ",
+    title: "Design Architext",
+    imageUrl: 'akhil.jpeg'
+  },
+  {
+    name: "Gopakumar",
     title: "Senior Event Planner",
-    // imageUrl: 'path/to/planner1-image.jpg'
-  },
-  {
-    name: "[Architect Name]",
-    title: "Design Architect",
     // imageUrl: 'path/to/architect-image.jpg'
   },
   {
-    name: "[Planner Name 2]",
+    name: "Anjana S",
     title: "Event Planner",
     // imageUrl: 'path/to/planner2-image.jpg'
   },
   {
-    name: "[Planner Name 3]",
-    title: "Event Coordinator",
+    name: "Sujith P",
+    title: "Production Coordinator",
     // imageUrl: 'path/to/planner3-image.jpg'
   }
 ];
