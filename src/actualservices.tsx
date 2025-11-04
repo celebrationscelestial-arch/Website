@@ -25,7 +25,7 @@ const styles = {
     fontWeight: 300,
     color: '#fff',
     textAlign: 'center',
-    textShadow: '0 4px 10px #e2c12d', // Reverted to original (and fixed typo)
+    textShadow: '0 4px 10px #e2c12d', 
   },
   // White container for the services grid
   servicesGridContainer: {
@@ -102,7 +102,7 @@ const ServiceCard = ({ image, title, description }) => (
       src={image} 
       alt={title} 
       style={styles.serviceImage} 
-      // Add a placeholder fallback (REMOVED)
+      // Removed onError fallback
     />
     <div style={styles.serviceContent}>
       <h3 style={styles.serviceTitle}>{title}</h3>
@@ -113,7 +113,7 @@ const ServiceCard = ({ image, title, description }) => (
 
 // Services Page Component
 const ServicesPage = () => {
-  // Updated image paths as requested (Reverted to original)
+  // Reverted to original local image paths
   const servicesData = [
     {
       image: 'custom-invitation-design.jpeg',
@@ -235,6 +235,7 @@ const ServicesPage = () => {
       maxWidth: '700px',
       margin: '0 auto', // Center the quote
       lineHeight: '1.6',
+      // Removed temporary yellow background
     }
   };
   // --- END OF NEW STYLES ---
@@ -247,7 +248,7 @@ const ServicesPage = () => {
       </div>
 
       {/* --- NEWLY ADDED INTRO SECTION --- */}
-      {/* The structure is unchanged, as the quote should be visible with just the font change. */}
+      {/* This structure is correct and contains the typo fix (</p>) */}
       <div style={newStyles.introSectionContainer}>
         <div style={newStyles.headingContainer}>
           <h2 style={newStyles.servicesHeading}>Services</h2>
@@ -278,6 +279,4 @@ const ServicesPage = () => {
 };
 
 export default ServicesPage;
-
-
 
