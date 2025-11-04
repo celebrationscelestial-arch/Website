@@ -4,7 +4,7 @@ import React from 'react';
 const styles = {
   servicesContainer: {
     fontFamily: "'Inter', sans-serif", // Base font set to Inter
-    backgroundImage: "url('bg1.png')", // Specific background for services page
+    backgroundImage: "url('bg1.jpg')", // Specific background for services page
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     backgroundAttachment: 'fixed',
