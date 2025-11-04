@@ -51,7 +51,7 @@ const Team = () => {
         {/* Header - Themed like About.jsx */}
         <header className="mb-16">
           <h1 className="font-great-vibes text-5xl md:text-7xl text-gray-800 mb-6">
-            Meet Our Creative Team
+            Meet Our Creative Team ✨
           </h1>
           <div className="max-w-3xl mx-auto">
             <p className="text-lg text-gray-600 leading-relaxed font-serif">
