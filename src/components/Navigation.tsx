@@ -123,7 +123,7 @@ const Navigation = () => {
           </button>
           
           {/* The Dropdown Menu */}
-          <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-48 bg-white/30 backdrop-blur-lg rounded-lg shadow-xl border border-white/10 hidden group-hover:block transition-all duration-300 z-50">
+          <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-48 bg-white backdrop-blur-lg rounded-lg shadow-xl border border-white/10 hidden group-hover:block transition-all duration-300 z-50">
             <div className="p-2">
               {item.items.map((subItem) => (
                 // Render sub-items with dropdown styling
