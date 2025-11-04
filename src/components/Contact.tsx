@@ -150,9 +150,18 @@ ${formData.message}
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center space-y-6 mb-20 relative z-10">
-          <h2 className="text-5xl lg:text-6xl font-bold text-gray-800">
-            <span className="text-6xl lg:text-7xl" style={fontStyles.dancing}>Let's Plan Your</span> 
-            <span className="bg-gradient-to-r from-yellow-400 to-amber-600 bg-clip-text text-transparent text-7xl lg:text-8xl block" style={fontStyles.greatVibes}>Perfect Event</span>
+          {/* FIX 1: 
+            Removed the "text-5xl lg:text-6xl" from the <h2> tag.
+            The child <span> elements already define larger font sizes.
+            By removing the parent's conflicting font size, the <h2>'s line-height 
+            will correctly adjust to fit the large fonts inside, preventing the "cut off" effect.
+          */}
+          <h2 className="font-bold text-gray-800">
+            {/* FIX 3: Changed from 'greatVibes' to 'playfair' 
+              to use a non-cursive, elegant serif font.
+            */}
+            <span className="text-6xl lg:text-7xl" style={fontStyles.playfair}>Let's Plan Your</span> 
+            <span className="bg-gradient-to-r from-yellow-400 to-amber-600 bg-clip-text text-transparent text-7xl lg:text-8xl block" style={fontStyles.playfair}>Perfect Event</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed" style={fontStyles.inter}>
             Ready to create something extraordinary? Get in touch with us and let's start planning your unforgettable celebration.
@@ -170,7 +179,9 @@ ${formData.message}
                       <IconComponent className="h-6 w-6 text-black" />
                     </div>
                     <div>
-                      <h4 className="text-xl font-bold text-gray-800 mb-1" style={fontStyles.dancing}>{info.title}</h4>
+                      {/* FIX 3: Changed from 'dancing' to 'playfair'
+                      */}
+                      <h4 className="text-xl font-bold text-gray-800 mb-1" style={fontStyles.playfair}>{info.title}</h4>
                       <p className="text-gray-800 font-semibold" style={fontStyles.inter}>{info.content}</p>
                       <p className="text-sm text-gray-600" style={fontStyles.inter}>{info.subContent}</p>
                     </div>
@@ -185,21 +196,29 @@ ${formData.message}
             <form onSubmit={handleSubmit} className="space-y-6 bg-gradient-to-br from-white to-amber-50 rounded-3xl p-10 shadow-xl border-2 border-yellow-300/50">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="name" className="block text-base font-semibold text-gray-800 mb-2" style={fontStyles.dancing}>Full Name *</label>
+                  {/* FIX 3: Changed from 'dancing' to 'playfair'
+                  */}
+                  <label htmlFor="name" className="block text-base font-semibold text-gray-800 mb-2" style={fontStyles.playfair}>Full Name *</label>
                   <input type="text" id="name" name="name" required value={formData.name} onChange={handleChange} className="w-full px-5 py-4 rounded-2xl border-2 border-yellow-300/60 focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 transition-all duration-500 bg-white/90 backdrop-blur-sm shadow-inner" placeholder="Your full name" style={fontStyles.inter} />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-base font-semibold text-gray-800 mb-2" style={fontStyles.dancing}>Email Address *</label>
+                  {/* FIX 3: Changed from 'dancing' to 'playfair'
+                  */}
+                  <label htmlFor="email" className="block text-base font-semibold text-gray-800 mb-2" style={fontStyles.playfair}>Email Address *</label>
                   <input type="email" id="email" name="email" required value={formData.email} onChange={handleChange} className="w-full px-5 py-4 rounded-2xl border-2 border-yellow-300/60 focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 transition-all duration-500 bg-white/90 backdrop-blur-sm shadow-inner" placeholder="your@email.com" style={fontStyles.inter} />
                 </div>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                  <div>
-                  <label htmlFor="phone" className="block text-base font-semibold text-gray-800 mb-2" style={fontStyles.dancing}>Phone Number</label>
+                  {/* FIX 3: Changed from 'dancing' to 'playfair'
+                  */}
+                  <label htmlFor="phone" className="block text-base font-semibold text-gray-800 mb-2" style={fontStyles.playfair}>Phone Number</label>
                   <input type="tel" id="phone" name="phone" value={formData.phone} onChange={handleChange} className="w-full px-5 py-4 rounded-2xl border-2 border-yellow-300/60 focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 transition-all duration-500 bg-white/90 backdrop-blur-sm shadow-inner" placeholder="" style={fontStyles.inter} />
                 </div>
                 <div>
-                  <label htmlFor="eventType" className="block text-base font-semibold text-gray-800 mb-2" style={fontStyles.dancing}>Event Type *</label>
+                  {/* FIX 3: Changed from 'dancing' to 'playfair'
+                  */}
+                  <label htmlFor="eventType" className="block text-base font-semibold text-gray-800 mb-2" style={fontStyles.playfair}>Event Type *</label>
                   <select id="eventType" name="eventType" required value={formData.eventType} onChange={handleChange} className="w-full px-5 py-4 rounded-2xl border-2 border-yellow-300/60 focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 transition-all duration-500 bg-white/90 backdrop-blur-sm shadow-inner" style={fontStyles.inter}>
                     <option value="">Select event type</option>
                     <option value="wedding">Wedding</option>
