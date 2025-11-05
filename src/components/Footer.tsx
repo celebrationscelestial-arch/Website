@@ -47,21 +47,21 @@ const Footer = () => {
             </p>
             <div className="flex space-x-4">
               <a
-                href="#"
+                href="https://www.facebook.com/share/1BixQhY4LA/"
                 className="bg-charcoal hover:bg-gold-gradient rounded-full p-3 transition-all duration-500 hover:shadow-divine group transform hover:scale-110"
                 aria-label="Facebook"
               >
                 <Facebook className="h-6 w-6 group-hover:text-deep-black" />
               </a>
               <a
-                href="#"
+                href="https://www.instagram.com/celestialcelebrationsevent?igsh=MTgwdmc0cGhtM28zcg=="
                 className="bg-charcoal hover:bg-gold-gradient rounded-full p-3 transition-all duration-500 hover:shadow-divine group transform hover:scale-110"
                 aria-label="Instagram"
               >
                 <Instagram className="h-6 w-6 group-hover:text-deep-black" />
               </a>
               <a
-                href="#"
+                href="https://www.linkedin.com/company/celestial-celebrations/"
                 className="bg-charcoal hover:bg-gold-gradient rounded-full p-3 transition-all duration-500 hover:shadow-divine group transform hover:scale-110"
                 aria-label="LinkedIn"
               >
