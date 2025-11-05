@@ -239,11 +239,10 @@ ${formData.message}
                     <label htmlFor="guestCount" className="block text-sm font-semibold text-gray-800 mb-2" style={fontStyles.inter}>Expected Guest Count</label>
                     <select id="guestCount" name="guestCount" value={formData.guestCount} onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-yellow-300/60 focus:ring-2 focus:ring-yellow-400 focus:border-transparent transition-all duration-300 bg-white/80 backdrop-blur-sm" style={fontStyles.inter}>
                       <option value="">Select guest count</option>
-                      <option value="under-50">Under 50</option>
-                      <option value="50-100">50-100</option>
-                      <option value="100-200">100-200</option>
-                      <option value="200-500">200-500</option>
-                      <option value="over-500">Over 500</option>
+                      <option value="under-50">100-200</option>
+                      <option value="50-100">300-500</option>
+                      <option value="100-200">500-1000</option>
+                      <option value="200-500">Above 1000</option>
                     </select>
                   </div>
               </div>
@@ -251,10 +250,11 @@ ${formData.message}
                 <label htmlFor="budget" className="block text-sm font-semibold text-gray-800 mb-2" style={fontStyles.inter}>Estimated Budget</label>
                 <select id="budget" name="budget" value={formData.budget} onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-yellow-300/60 focus:ring-2 focus:ring-yellow-400 focus:border-transparent transition-all duration-300 bg-white/80 backdrop-blur-sm" style={fontStyles.inter}>
                   <option value="">Select budget range</option>
-                  <option value="above1.5l">Above 1.5L</option>
-                  <option value="1.5to2">1.5L-2L</option>
-                  <option value="2.5lto3">2L - 3L</option>
-                  <option value="above3">Above 3L</option>
+                  <option value="above1.5">Above 1.5L</option>
+                  <option value="2to3">2L-3L</option>
+                  <option value="3to5">3L - 5L</option>
+                  <option value="5to8">5L-8L</option>
+                  <option value="abvove8">Above 8L</option>
                
                 </select>
               </div>
