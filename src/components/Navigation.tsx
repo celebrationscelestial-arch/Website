@@ -11,7 +11,7 @@ const loadGoogleFonts = () => {
 };
 
 const Navigation = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] =  useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -183,13 +183,12 @@ const Navigation = () => {
         isScrolled
           ? 'bg-black/20 backdrop-blur-lg shadow-2xl border-b border-white/10'
           : 'bg-transparent'
-      } md:bg-transparent`} // UPDATED: Force transparent on md+
+      }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Desktop Navigation */}
         <div className="hidden md:block">
-          {/* UPDATED: Increased desktop logo size */}
           <div className={`flex items-center justify-between transition-all duration-700 ${isScrolled ? 'h-24' : 'h-36'}`}>
             
             {/* Left Navigation - 40% */}
@@ -211,12 +210,10 @@ const Navigation = () => {
                   <img
                     src="logo4.png"
                     alt="Celestial Celebrations Logo"
-                    // UPDATED: Increased desktop logo size
-                    className="w-24 h-24 object-cover rounded-full"
+                    className="w-20 h-20 object-cover rounded-full"
                   />
                 </div>
-                {/* UPDATED: Increased desktop text size */}
-                <h1 className="mt-3 text-xl font-bold bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500 bg-clip-text text-transparent tracking-wide whitespace-nowrap" style={{ fontFamily: 'Cinzel, serif' }}>
+                <h1 className="mt-3 text-l font-bold bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500 bg-clip-text text-transparent tracking-wide whitespace-nowrap" style={{ fontFamily: 'Cinzel, serif' }}>
                   Celestial Celebrations
                 </h1>
               </div>
@@ -232,42 +229,46 @@ const Navigation = () => {
           </div>
         </div>
 
+        {/* ================================== */}
         {/* Mobile Navigation */}
+        {/* ================================== */}
         <div className="md:hidden">
-          {/* UPDATED: Increased height, set explicit bg */}
-          <div className="flex items-center justify-between h-28 px-2 bg-black/10">
+          {/* --- MODIFICATION HERE --- */}
+          {/* Parent container is now relative */}
+          <div className="relative h-20">
             
-            {/* Mobile Logo */}
-            {/* UPDATED: Set flex-1 to allow shrinking, added gap */}
-            <div className="flex items-center space-x-3 overflow-hidden">
+            {/* Mobile Logo Group - Centered */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center space-x-3">
               <img
-                src="logo2.png"
+                src="logo4.png" 
                 alt="Celestial Celebrations Logo"
-                // UPDATED: Increased logo size
-                className="w-24 h-24 object-contain rounded-full flex-shrink-0"
+                className="w-12 h-12 object-contain rounded-full flex-shrink-0"
               />
-              {/* UPDATED: Increased text size, added whitespace-nowrap */}
-              <span className="text-2xl bg-gradient-to-r from-yellow-300 to-yellow-500 bg-clip-text text-transparent whitespace-nowrap" style={{ fontFamily: 'Cinzel, serif' }}>
-              Celestial Celebrations
+              <span 
+                className="text-base font-bold bg-gradient-to-r from-yellow-300 to-yellow-500 bg-clip-text text-transparent whitespace-nowrap" 
+                style={{ fontFamily: 'Cinzel, serif' }}
+              >
+                Celestial Celebrations
               </span>
             </div>
 
-            {/* Mobile Menu Button */}
+            {/* Mobile Menu Button - Positioned Right */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              // MODIFICATION HERE
-              className={`p-2 transition-colors duration-300 flex-shrink-0 ${
+              // Positioned absolutely to the right
+              className={`absolute top-1/2 right-0 -translate-y-1/2 p-2 transition-colors duration-300 ${
                 isScrolled ? 'text-yellow-400 hover:text-white' : 'text-white hover:text-yellow-400'
               }`}
             >
-              {/* UPDATED: Increased icon size */}
-              {isMenuOpen ? <X size={34} /> : <Menu size={34} />}
+              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
+          {/* --- END MODIFICATION --- */}
+
 
           {/* Mobile Menu Dropdown */}
           {isMenuOpen && (
-            <div className="border-t border-white/10 bg-black/10 backdrop-blur-xl">
+            <div className="border-t border-white/10 bg-black/90 backdrop-blur-xl">
               <div className="px-4 py-6 space-y-4">
                 {/* --- MODIFICATION: Use flattened items --- */}
                 {mobileNavItems.map((item) => renderMobileNavItem(item))}
