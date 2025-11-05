@@ -111,7 +111,7 @@ const Navigation = () => {
     if (item.type === 'dropdown' && !isDropdownItem) {
       // This is the main "About" trigger
       return (
-        <div key={item.name} className="relative group pb-3">
+        <div key={item.name} className="relative group">
           {/* This is the "About" button that triggers the hover */}
           <button
             className={mainNavItemClassName} // Use main nav style
@@ -123,8 +123,14 @@ const Navigation = () => {
           </button>
           
           {/* The Dropdown Menu */}
-          <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-48 bg-black/60 backdrop-blur-lg rounded-lg shadow-xl border border-white/10 hidden group-hover:block transition-all duration-300 z-50 text-black">
-            <div className="p-2">
+          {/* =================== */}
+          {/* === FIX 1 HERE === */}
+          {/* Removed `mt-2` to eliminate the hover gap */}
+          <div className="absolute top-full left-1/2 -translate-x-1/2 w-48 bg-black/60 backdrop-blur-lg rounded-lg shadow-xl border border-white/10 hidden group-hover:block transition-all duration-300 z-50 text-black">
+            {/* =================== */}
+            {/* === FIX 2 HERE === */}
+            {/* Changed `p-2` to `p-2 pt-4` to add back visual spacing *inside* the box */}
+            <div className="p-2 pt-4">
               {item.items.map((subItem: any) => (
                 // Render sub-items with dropdown styling
                 renderNavItem(subItem, true) 
