@@ -11,7 +11,7 @@ const loadGoogleFonts = () => {
 };
 
 const Navigation = () => {
-  const [isMenuOpen, setIsMenuOpen] =  useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -233,24 +233,28 @@ const Navigation = () => {
         {/* Mobile Navigation */}
         {/* ================================== */}
         <div className="md:hidden">
-          {/* --- MODIFICATION HERE --- */}
           {/* Parent container is now relative */}
           <div className="relative h-20">
             
-            {/* Mobile Logo Group - Centered */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center space-x-3">
+            {/* --- MODIFICATION HERE --- */}
+            {/* Mobile Logo Group - Centered and Stacked */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center space-y-1">
               <img
                 src="logo4.png" 
                 alt="Celestial Celebrations Logo"
-                className="w-12 h-12 object-contain rounded-full flex-shrink-0"
+                // Logo bigger (was w-12)
+                className="w-14 h-14 object-contain rounded-full flex-shrink-0" 
               />
               <span 
-                className="text-base font-bold bg-gradient-to-r from-yellow-300 to-yellow-500 bg-clip-text text-transparent whitespace-nowrap" 
+                // Text smaller (was text-base)
+                className="text-sm font-bold bg-gradient-to-r from-yellow-300 to-yellow-500 bg-clip-text text-transparent whitespace-nowrap" 
                 style={{ fontFamily: 'Cinzel, serif' }}
               >
                 Celestial Celebrations
               </span>
             </div>
+            {/* --- END MODIFICATION --- */}
+
 
             {/* Mobile Menu Button - Positioned Right */}
             <button
@@ -263,8 +267,6 @@ const Navigation = () => {
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
-          {/* --- END MODIFICATION --- */}
-
 
           {/* Mobile Menu Dropdown */}
           {isMenuOpen && (
