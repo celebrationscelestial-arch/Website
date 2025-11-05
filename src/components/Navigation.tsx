@@ -11,7 +11,7 @@ const loadGoogleFonts = () => {
 };
 
 const Navigation = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] =useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -125,12 +125,12 @@ const Navigation = () => {
           {/* The Dropdown Menu */}
           {/* =================== */}
           {/* === FIX 1 HERE === */}
-          {/* Removed `mt-2` to eliminate the hover gap */}
+          {/* `mt-2` is GONE. This makes the hover box touch the button. */}
           <div className="absolute top-full left-1/2 -translate-x-1/2 w-48 bg-black/60 backdrop-blur-lg rounded-lg shadow-xl border border-white/10 hidden group-hover:block transition-all duration-300 z-50 text-black">
             {/* =================== */}
             {/* === FIX 2 HERE === */}
-            {/* Changed `p-2` to `p-2 pt-4` to add back visual spacing *inside* the box */}
-            <div className="p-2 pt-4">
+            {/* Back to `p-2`. This makes the internal visual gap small (8px). */}
+            <div className="p-2">
               {item.items.map((subItem: any) => (
                 // Render sub-items with dropdown styling
                 renderNavItem(subItem, true) 
