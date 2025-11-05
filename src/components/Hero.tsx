@@ -32,7 +32,7 @@ const Hero = () => {
       <div className="absolute inset-0 bg-black/40 z-5"></div>
 
       {/* 3. The Button (z-20) */}
-      <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 z-20 w-25 px-10 sm:w-auto">
+      <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2 z-20 w-25 px-10 sm:w-auto">
         <button
           onClick={scrollToContact}
           className="group bg-white hover:shadow-divine text-deep-black px-12 py-5 rounded-full text-lg font-inter font-semibold transition-all duration-700 flex items-center justify-center space-x-2 shadow-divine hover:shadow-gold transform hover:scale-105 w-full sm:w-auto"

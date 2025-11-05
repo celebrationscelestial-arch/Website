@@ -54,7 +54,7 @@ const Navigation = () => {
   );
   // --- END MODIFICATION ---
 
-  const scrollToSection = (href) => {
+  const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
@@ -64,7 +64,7 @@ const Navigation = () => {
 
   // --- MODIFICATION: Updated renderNavItem to handle dropdowns ---
   // Helper function to render a nav item
-  const renderNavItem = (item, isDropdownItem = false) => {
+  const renderNavItem = (item: any, isDropdownItem = false) => {
     // Base classes
     // --- MODIFICATION: Removed baseStyle variable ---
     const baseClassName = "transition-all duration-300 text-base font-medium";
@@ -125,7 +125,7 @@ const Navigation = () => {
           {/* The Dropdown Menu */}
           <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-48 bg-black/60 backdrop-blur-lg rounded-lg shadow-xl border border-white/10 hidden group-hover:block transition-all duration-300 z-50 text-black">
             <div className="p-2">
-              {item.items.map((subItem) => (
+              {item.items.map((subItem: any) => (
                 // Render sub-items with dropdown styling
                 renderNavItem(subItem, true) 
               ))}
@@ -141,7 +141,7 @@ const Navigation = () => {
 
   // --- MODIFICATION: Made mobile renderer more robust ---
   // Helper function to render a MOBILE nav item
-  const renderMobileNavItem = (item) => {
+  const renderMobileNavItem = (item: any) => {
     const className = "block w-full text-left text-white hover:text-yellow-400 px-4 py-3 text-lg font-medium transition-all duration-300 hover:bg-white/10 rounded-lg";
     
     if (item.type === 'page') {
@@ -183,12 +183,13 @@ const Navigation = () => {
         isScrolled
           ? 'bg-black/20 backdrop-blur-lg shadow-2xl border-b border-white/10'
           : 'bg-transparent'
-      }`}
+      } md:bg-transparent`} // UPDATED: Force transparent on md+
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Desktop Navigation */}
         <div className="hidden md:block">
+          {/* UPDATED: Increased desktop logo size */}
           <div className={`flex items-center justify-between transition-all duration-700 ${isScrolled ? 'h-24' : 'h-36'}`}>
             
             {/* Left Navigation - 40% */}
@@ -210,10 +211,12 @@ const Navigation = () => {
                   <img
                     src="logo4.png"
                     alt="Celestial Celebrations Logo"
+                    // UPDATED: Increased desktop logo size
                     className="w-24 h-24 object-cover rounded-full"
                   />
                 </div>
-                <h1 className="mt-3 text-l font-bold bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500 bg-clip-text text-transparent tracking-wide whitespace-nowFrap" style={{ fontFamily: 'Cinzel, serif' }}>
+                {/* UPDATED: Increased desktop text size */}
+                <h1 className="mt-3 text-xl font-bold bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500 bg-clip-text text-transparent tracking-wide whitespace-nowrap" style={{ fontFamily: 'Cinzel, serif' }}>
                   Celestial Celebrations
                 </h1>
               </div>
@@ -231,20 +234,21 @@ const Navigation = () => {
 
         {/* Mobile Navigation */}
         <div className="md:hidden">
-          {/* UPDATED: Added bg-black here to force the nav bar to be black */}
-          <div className="flex items-center justify-between h-24 bg-black/10">
+          {/* UPDATED: Increased height, set explicit bg */}
+          <div className="flex items-center justify-between h-28 px-2 bg-black/10">
             
-            {/* Mobile Logo - UPDATED with larger sizes */}
-            <div className="flex items-center space-x-3 pl-4">
+            {/* Mobile Logo */}
+            {/* UPDATED: Set flex-1 to allow shrinking, added gap */}
+            <div className="flex items-center space-x-3 overflow-hidden">
               <img
                 src="logo2.png"
                 alt="Celestial Celebrations Logo"
-                /* Increased size from w-12 h-12 to w-14 h-14 */
-                className="w-24 h-24 object-contain rounded-full"
+                // UPDATED: Increased logo size
+                className="w-24 h-24 object-contain rounded-full flex-shrink-0"
               />
-              {/* Increased size from text-lg to text-xl */}
-              <span className="text-xl font-bold bg-gradient-to-r from-yellow-300 to-yellow-500 bg-clip-text text-transparent" style={{ fontFamily: 'Cinzel, serif' }}>
-                Celestial Celebrations
+              {/* UPDATED: Increased text size, added whitespace-nowrap */}
+              <span className="text-2xl bg-gradient-to-r from-yellow-300 to-yellow-500 bg-clip-text text-transparent whitespace-nowrap" style={{ fontFamily: 'Cinzel, serif' }}>
+              Celestial Celebrations
               </span>
             </div>
 
@@ -252,17 +256,18 @@ const Navigation = () => {
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               // MODIFICATION HERE
-              className={`p-2 transition-colors duration-300 pr-4 ${
+              className={`p-2 transition-colors duration-300 flex-shrink-0 ${
                 isScrolled ? 'text-yellow-400 hover:text-white' : 'text-white hover:text-yellow-400'
               }`}
             >
-              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              {/* UPDATED: Increased icon size */}
+              {isMenuOpen ? <X size={34} /> : <Menu size={34} />}
             </button>
           </div>
 
           {/* Mobile Menu Dropdown */}
           {isMenuOpen && (
-            <div className="border-t border-white/10 bg-black/90 backdrop-blur-xl">
+            <div className="border-t border-white/10 bg-black/10 backdrop-blur-xl">
               <div className="px-4 py-6 space-y-4">
                 {/* --- MODIFICATION: Use flattened items --- */}
                 {mobileNavItems.map((item) => renderMobileNavItem(item))}

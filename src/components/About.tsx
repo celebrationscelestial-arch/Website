@@ -26,19 +26,22 @@ const About = () => {
   }, []);
 
   return (
-    <section id="about" className="py-24 bg-white">
+    // UPDATED: Added w-full overflow-x-hidden and reduced vertical padding for mobile
+    <section id="about" className="py-16 sm:py-24 bg-white w-full overflow-x-hidden">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         
-        {/* Text Content (Unchanged) */}
-        <header className="mb-16">
+        {/* UPDATED: Reduced margin-bottom for mobile */}
+        <header className="mb-12 sm:mb-16">
           <h1 className="font-great-vibes text-4xl md:text-7xl text-gray-800 mb-6">
             Celestial Celebrations
           </h1>
           <div className="max-w-3xl mx-auto space-y-4">
-            <p className="text-lg text-gray-600 leading-relaxed font-serif">
+            {/* UPDATED: Reduced text size for mobile */}
+            <p className="text-base sm:text-lg text-gray-600 leading-relaxed font-serif">
              At Celestial Celebrations, we believe every moment deserves to shine as brightly as the stars. Our mission is to craft unforgettable experiences that blend beauty, meaning, and wonder — whether it’s a wedding under the night sky, a themed gala, or a private celebration inspired by the cosmos.
             </p>
-            <p className="text-lg text-gray-600 leading-relaxed font-serif">
+            {/* UPDATED: Reduced text size for mobile */}
+            <p className="text-base sm:text-lg text-gray-600 leading-relaxed font-serif">
              Founded on a passion for creativity and connection, Celestial Celebrations brings together artful design, meticulous planning, and a touch of celestial magic. We curate every detail — from lighting and décor to music and atmosphere — to ensure your event feels truly out of this world.
             </p>
           </div>
@@ -51,10 +54,8 @@ const About = () => {
           </h2>
           
           {/* Carousel Container: Sets up the perspective area */}
-          {/* CHANGE: Reduced max-width from max-w-3xl to max-w-2xl 
-            and reduced height classes to make the carousel smaller.
-          */}
-          <div className="relative w-full max-w-2xl mx-auto h-56 md:h-80 lg:h-[26rem]">
+          {/* UPDATED: Reduced height for mobile */}
+          <div className="relative w-full max-w-2xl mx-auto h-48 sm:h-56 md:h-80 lg:h-[26rem]">
             {weddingImages.map((src, index) => {
               const prevIndex = (currentIndex - 1 + weddingImages.length) % weddingImages.length;
               const nextIndex = (currentIndex + 1) % weddingImages.length;
@@ -66,10 +67,12 @@ const About = () => {
                 positionClasses = 'translate-x-0 scale-100 opacity-100 z-10';
               } else if (index === prevIndex) {
                 // The previous slide, peeking from the left
-                positionClasses = '-translate-x-[65%] scale-75 opacity-60 z-0';
+                // UPDATED: Reduced translation on mobile to "tuck it in"
+                positionClasses = '-translate-x-[60%] sm:-translate-x-[65%] scale-75 opacity-60 z-0';
               } else if (index === nextIndex) {
                 // The next slide, peeking from the right
-                positionClasses = 'translate-x-[65%] scale-75 opacity-60 z-0';
+                // UPDATED: Reduced translation on mobile to "tuck it in"
+                positionClasses = 'translate-x-[60%] sm:translate-x-[65%] scale-75 opacity-60 z-0';
               }
               
               return (
