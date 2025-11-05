@@ -47,7 +47,7 @@ const testimonials = [
 ];
 
 
-// --- COMPONENT ---
+// --- COMPONENT --- 
 export default function App() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -76,7 +76,7 @@ export default function App() {
       className="min-h-screen flex items-center justify-center py-20 px-4"
       style={{
         // Changed the gradient from light to dark to make the white text pop
-        backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('testimonial.webp')",
+        backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('testimonial.jpeg')",
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundAttachment: 'fixed',
