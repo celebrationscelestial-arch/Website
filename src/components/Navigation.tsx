@@ -111,7 +111,7 @@ const Navigation = () => {
     if (item.type === 'dropdown' && !isDropdownItem) {
       // This is the main "About" trigger
       return (
-        <div key={item.name} className="relative group">
+        <div key={item.name} className="relative group pb-3">
           {/* This is the "About" button that triggers the hover */}
           <button
             className={mainNavItemClassName} // Use main nav style
