@@ -112,7 +112,8 @@ ${formData.message}
 
   if (isSubmitted) {
     return (
-      <section id="contact" className="py-24 bg-white relative overflow-hidden">
+      // UPDATED: Reduced padding for mobile
+      <section id="contact" className="py-16 sm:py-24 bg-white relative overflow-hidden">
         <FontLoader />
         <div className="absolute inset-0">
           <div className="absolute top-0 right-0 w-72 h-72 bg-yellow-100/50 rounded-full blur-3xl"></div>
@@ -121,14 +122,18 @@ ${formData.message}
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mx-auto text-center space-y-8 relative z-10">
-            <div className="bg-gradient-to-br from-yellow-300 to-amber-500 rounded-full p-8 w-32 h-32 flex items-center justify-center mx-auto shadow-lg">
-              <CheckCircle className="h-16 w-16 text-black" />
+            {/* UPDATED: Reduced icon size and padding for mobile */}
+            <div className="bg-gradient-to-br from-yellow-300 to-amber-500 rounded-full p-6 sm:p-8 w-28 h-28 sm:w-32 sm:h-32 flex items-center justify-center mx-auto shadow-lg">
+              <CheckCircle className="h-12 w-12 sm:h-16 sm:w-16 text-black" />
             </div>
-            <h2 className="text-5xl font-bold text-gray-800 italic" style={fontStyles.playfair}>Thank You!</h2>
-            <p className="text-xl text-gray-600 leading-relaxed" style={fontStyles.inter}>
+            {/* UPDATED: Reduced text size for mobile */}
+            <h2 className="text-4xl sm:text-5xl font-bold text-gray-800 italic" style={fontStyles.playfair}>Thank You!</h2>
+            {/* UPDATED: Reduced text size for mobile */}
+            <p className="text-lg sm:text-xl text-gray-600 leading-relaxed" style={fontStyles.inter}>
               We're opening WhatsApp for you. Please press "send" to confirm your inquiry.
             </p>
-            <div className="bg-amber-50 rounded-2xl p-6 border border-yellow-300/50">
+            {/* UPDATED: Reduced padding for mobile */}
+            <div className="bg-amber-50 rounded-2xl p-4 sm:p-6 border border-yellow-300/50">
               <p className="text-gray-800 font-medium" style={fontStyles.inter}>
                 We will get back to you as soon as possible.
               </p>
@@ -140,7 +145,8 @@ ${formData.message}
   }
 
   return (
-    <section id="contact" className="py-24 bg-white relative overflow-hidden">
+    // UPDATED: Reduced padding for mobile
+    <section id="contact" className="py-16 sm:py-24 bg-white relative overflow-hidden">
       <FontLoader />
       <div className="absolute inset-0">
         <div className="absolute top-0 left-0 w-80 h-80 bg-yellow-100/50 rounded-full blur-3xl"></div>
@@ -149,38 +155,33 @@ ${formData.message}
       </div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center space-y-6 mb-20 relative z-10">
-          {/* FIX 1: 
-            Removed the "text-5xl lg:text-6xl" from the <h2> tag.
-            The child <span> elements already define larger font sizes.
-            By removing the parent's conflicting font size, the <h2>'s line-height 
-            will correctly adjust to fit the large fonts inside, preventing the "cut off" effect.
-          */}
+        {/* UPDATED: Reduced margin for mobile */}
+        <div className="text-center space-y-6 mb-12 lg:mb-20 relative z-10">
           <h2 className="font-bold text-gray-800">
-            {/* FIX 3: Changed from 'greatVibes' to 'playfair' 
-              to use a non-cursive, elegant serif font.
-            */}
-            <span className="text-6xl lg:text-7xl" style={fontStyles.playfair}>Let's Plan Your</span> 
-            <span className="bg-gradient-to-r from-yellow-400 to-amber-600 bg-clip-text text-transparent text-7xl lg:text-8xl block" style={fontStyles.playfair}>Perfect Event</span>
+            {/* UPDATED: Reduced text size for mobile */}
+            <span className="text-5xl sm:text-6xl lg:text-7xl" style={fontStyles.playfair}>Let's Plan Your</span> 
+            {/* UPDATED: Reduced text size for mobile */}
+            <span className="bg-gradient-to-r from-yellow-400 to-amber-600 bg-clip-text text-transparent text-6xl sm:text-7xl lg:text-8xl block" style={fontStyles.playfair}>Perfect Event</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed" style={fontStyles.inter}>
+          {/* UPDATED: Reduced text size for mobile */}
+          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed" style={fontStyles.inter}>
             Ready to create something extraordinary? Get in touch with us and let's start planning your unforgettable celebration.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 relative z-10">
+        {/* UPDATED: Reduced gap for mobile */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 relative z-10">
           <div className="space-y-8">
             <div className="space-y-6">
               {contactInfo.map((info, index) => {
                 const IconComponent = info.icon;
                 return (
-                  <div key={index} className="flex items-start space-x-4 p-8 bg-gradient-to-br from-white to-amber-50 rounded-3xl hover:shadow-xl transition-all duration-700 border-2 border-yellow-300/50 hover:border-yellow-400/80 transform hover:scale-105">
+                  // UPDATED: Reduced padding for mobile
+                  <div key={index} className="flex items-start space-x-4 p-6 sm:p-8 bg-gradient-to-br from-white to-amber-50 rounded-3xl hover:shadow-xl transition-all duration-700 border-2 border-yellow-300/50 hover:border-yellow-400/80 transform hover:scale-105">
                     <div className="bg-gradient-to-br from-yellow-300 to-amber-500 rounded-full p-4 flex-shrink-0 shadow-md">
                       <IconComponent className="h-6 w-6 text-black" />
                     </div>
                     <div>
-                      {/* FIX 3: Changed from 'dancing' to 'playfair'
-                      */}
                       <h4 className="text-xl font-bold text-gray-800 mb-1" style={fontStyles.playfair}>{info.title}</h4>
                       <p className="text-gray-800 font-semibold" style={fontStyles.inter}>{info.content}</p>
                       <p className="text-sm text-gray-600" style={fontStyles.inter}>{info.subContent}</p>
@@ -193,31 +194,26 @@ ${formData.message}
           </div>
 
           <div className="lg:col-span-2">
-            <form onSubmit={handleSubmit} className="space-y-6 bg-gradient-to-br from-white to-amber-50 rounded-3xl p-10 shadow-xl border-2 border-yellow-300/50">
+            {/* UPDATED: Reduced padding for mobile */}
+            <form onSubmit={handleSubmit} className="space-y-6 bg-gradient-to-br from-white to-amber-50 rounded-3xl p-6 sm:p-10 shadow-xl border-2 border-yellow-300/50">
+              {/* This grid is already responsive with md: prefix */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  {/* FIX 3: Changed from 'dancing' to 'playfair'
-                  */}
                   <label htmlFor="name" className="block text-base font-semibold text-gray-800 mb-2" style={fontStyles.playfair}>Full Name *</label>
                   <input type="text" id="name" name="name" required value={formData.name} onChange={handleChange} className="w-full px-5 py-4 rounded-2xl border-2 border-yellow-300/60 focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 transition-all duration-500 bg-white/90 backdrop-blur-sm shadow-inner" placeholder="Your full name" style={fontStyles.inter} />
                 </div>
                 <div>
-                  {/* FIX 3: Changed from 'dancing' to 'playfair'
-                  */}
                   <label htmlFor="email" className="block text-base font-semibold text-gray-800 mb-2" style={fontStyles.playfair}>Email Address *</label>
                   <input type="email" id="email" name="email" required value={formData.email} onChange={handleChange} className="w-full px-5 py-4 rounded-2xl border-2 border-yellow-300/60 focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 transition-all duration-500 bg-white/90 backdrop-blur-sm shadow-inner" placeholder="your@email.com" style={fontStyles.inter} />
                 </div>
               </div>
+              {/* This grid is already responsive with md: prefix */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                  <div>
-                  {/* FIX 3: Changed from 'dancing' to 'playfair'
-                  */}
                   <label htmlFor="phone" className="block text-base font-semibold text-gray-800 mb-2" style={fontStyles.playfair}>Phone Number</label>
                   <input type="tel" id="phone" name="phone" value={formData.phone} onChange={handleChange} className="w-full px-5 py-4 rounded-2xl border-2 border-yellow-300/60 focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 transition-all duration-500 bg-white/90 backdrop-blur-sm shadow-inner" placeholder="" style={fontStyles.inter} />
                 </div>
                 <div>
-                  {/* FIX 3: Changed from 'dancing' to 'playfair'
-                  */}
                   <label htmlFor="eventType" className="block text-base font-semibold text-gray-800 mb-2" style={fontStyles.playfair}>Event Type *</label>
                   <select id="eventType" name="eventType" required value={formData.eventType} onChange={handleChange} className="w-full px-5 py-4 rounded-2xl border-2 border-yellow-300/60 focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 transition-all duration-500 bg-white/90 backdrop-blur-sm shadow-inner" style={fontStyles.inter}>
                     <option value="">Select event type</option>
@@ -230,6 +226,7 @@ ${formData.message}
                   </select>
                 </div>
               </div>
+              {/* This grid is already responsive with md: prefix */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="eventDate" className="block text-sm font-semibold text-gray-800 mb-2" style={fontStyles.inter}>Preferred Event Date</label>
@@ -262,9 +259,10 @@ ${formData.message}
                 <label htmlFor="message" className="block text-sm font-semibold text-gray-800 mb-2" style={fontStyles.inter}>Tell Us About Your Vision *</label>
                 <textarea id="message" name="message" required rows={5} value={formData.message} onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-yellow-300/60 focus:ring-2 focus:ring-yellow-400 focus:border-transparent transition-all duration-300 resize-none bg-white/80 backdrop-blur-sm" placeholder="Share your event vision, special requirements, or any questions you have..." style={fontStyles.inter}></textarea>
               </div>
-              <button type="submit" className="w-full bg-gradient-to-r from-yellow-400 to-amber-500 hover:shadow-lg text-black px-10 py-5 rounded-full text-xl font-bold transition-all duration-700 flex items-center justify-center space-x-2 shadow-md hover:shadow-yellow-500/50 transform hover:scale-110 group" style={fontStyles.inter}>
+              {/* UPDATED: Reduced button size for mobile */}
+              <button type="submit" className="w-full bg-gradient-to-r from-yellow-400 to-amber-500 hover:shadow-lg text-black px-8 py-4 text-lg sm:px-10 sm:py-5 sm:text-xl font-bold transition-all duration-700 flex items-center justify-center space-x-2 shadow-md hover:shadow-yellow-500/50 transform hover:scale-110 group" style={fontStyles.inter}>
                 <span>Send via WhatsApp</span>
-                <Send className="h-6 w-6 group-hover:translate-x-3 transition-transform duration-700" />
+                <Send className="h-5 w-5 sm:h-6 sm:w-6 group-hover:translate-x-3 transition-transform duration-700" />
               </button>
             </form>
           </div>
@@ -275,4 +273,3 @@ ${formData.message}
 };
 
 export default Contact;
-

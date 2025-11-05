@@ -35,10 +35,14 @@ const Footer = () => {
         <div className="absolute bottom-0 right-0 w-80 h-80 bg-royal-gold/10 rounded-full blur-3xl"></div>
       </div>
       
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      {/* UPDATED: Reduced padding for mobile */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+        {/* This grid is already responsive and will stack to 1 column on mobile */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10">
+          
           {/* Company Info */}
-          <div className="space-y-6">
+          {/* UPDATED: Centered text and social icons on mobile */}
+          <div className="space-y-6 flex flex-col items-center md:items-start text-center md:text-left">
             <div className="flex items-center space-x-2">
               <span className="text-3xl font-great-vibes text-divine-gold">Celestial Celebrations</span>
             </div>
@@ -71,7 +75,8 @@ const Footer = () => {
           </div>
 
           {/* Services */}
-          <div className="space-y-6">
+          {/* UPDATED: Centered text on mobile */}
+          <div className="space-y-6 text-center md:text-left">
             <h3 className="text-2xl font-dancing font-bold text-divine-gold">Our Services</h3>
             <ul className="space-y-3">
               {services.map((service, index) => (
@@ -82,7 +87,8 @@ const Footer = () => {
                       e.preventDefault();
                       scrollToSection('#services');
                     }}
-                    className="text-gray-300 hover:text-divine-gold transition-colors duration-500 cursor-pointer font-inter hover:underline"
+                    // UPDATED: Centered links on mobile
+                    className="text-gray-300 hover:text-divine-gold transition-colors duration-500 cursor-pointer font-inter hover:underline inline-block"
                   >
                     {service}
                   </a>
@@ -92,14 +98,16 @@ const Footer = () => {
           </div>
 
           {/* Quick Links */}
-          <div className="space-y-6">
+          {/* UPDATED: Centered text on mobile */}
+          <div className="space-y-6 text-center md:text-left">
             <h3 className="text-2xl font-dancing font-bold text-divine-gold">Quick Links</h3>
             <ul className="space-y-3">
               {quickLinks.map((link, index) => (
                 <li key={index}>
                   <button
                     onClick={() => scrollToSection(link.href)}
-                    className="text-gray-300 hover:text-divine-gold transition-colors duration-500 text-left font-inter hover:underline"
+                    // UPDATED: Centered buttons on mobile
+                    className="text-gray-300 hover:text-divine-gold transition-colors duration-500 text-left font-inter hover:underline mx-auto md:mx-0"
                   >
                     {link.name}
                   </button>
@@ -109,7 +117,8 @@ const Footer = () => {
           </div>
 
           {/* Contact Info */}
-          <div className="space-y-6">
+          {/* UPDATED: Centered items on mobile */}
+          <div className="space-y-6 flex flex-col items-center md:items-start text-center md:text-left">
             <h3 className="text-2xl font-dancing font-bold text-divine-gold">Contact Info</h3>
             <div className="space-y-4">
               <div className="flex items-start space-x-3">
@@ -146,9 +155,12 @@ const Footer = () => {
        
 
         {/* Bottom Bar */}
-        <div className="border-t border-divine-gold/30 mt-8 pt-8 relative z-10">
+        {/* UPDATED: Increased top margin */}
+        <div className="border-t border-divine-gold/30 mt-12 pt-8 relative z-10">
+          {/* This flex layout is already responsive (flex-col) */}
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <div className="text-gray-300 text-sm font-inter">
+            {/* UPDATED: Centered copyright text on mobile */}
+            <div className="text-gray-300 text-sm font-inter text-center md:text-left">
               © 2025 Celestial Celebrations. All rights reserved. | Privacy Policy | Terms of Service
             </div>
             <div className="flex items-center space-x-2 text-gray-300 text-sm font-inter">

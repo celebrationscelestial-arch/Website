@@ -210,10 +210,10 @@ const Navigation = () => {
                   <img
                     src="logo4.png"
                     alt="Celestial Celebrations Logo"
-                    className="w-20 h-20 object-cover rounded-full"
+                    className="w-24 h-24 object-cover rounded-full"
                   />
                 </div>
-                <h1 className="mt-3 text-l font-bold bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500 bg-clip-text text-transparent tracking-wide whitespace-nowrap" style={{ fontFamily: 'Cinzel, serif' }}>
+                <h1 className="mt-3 text-l font-bold bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500 bg-clip-text text-transparent tracking-wide whitespace-nowFrap" style={{ fontFamily: 'Cinzel, serif' }}>
                   Celestial Celebrations
                 </h1>
               </div>
@@ -231,16 +231,19 @@ const Navigation = () => {
 
         {/* Mobile Navigation */}
         <div className="md:hidden">
-          <div className="flex items-center justify-between h-20">
+          {/* UPDATED: Added bg-black here to force the nav bar to be black */}
+          <div className="flex items-center justify-between h-24 bg-black/10">
             
-            {/* Mobile Logo */}
-            <div className="flex flex-col items-center">
+            {/* Mobile Logo - UPDATED with larger sizes */}
+            <div className="flex items-center space-x-3 pl-4">
               <img
                 src="logo2.png"
                 alt="Celestial Celebrations Logo"
-                className="w-12 h-12 object-contain rounded-full"
+                /* Increased size from w-12 h-12 to w-14 h-14 */
+                className="w-24 h-24 object-contain rounded-full"
               />
-              <span className="text-sm font-bold bg-gradient-to-r from-yellow-300 to-yellow-500 bg-clip-text text-transparent mt-1" style={{ fontFamily: 'Cinzel, serif' }}>
+              {/* Increased size from text-lg to text-xl */}
+              <span className="text-xl font-bold bg-gradient-to-r from-yellow-300 to-yellow-500 bg-clip-text text-transparent" style={{ fontFamily: 'Cinzel, serif' }}>
                 Celestial Celebrations
               </span>
             </div>
@@ -249,7 +252,7 @@ const Navigation = () => {
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               // MODIFICATION HERE
-              className={`p-2 transition-colors duration-300 ${
+              className={`p-2 transition-colors duration-300 pr-4 ${
                 isScrolled ? 'text-yellow-400 hover:text-white' : 'text-white hover:text-yellow-400'
               }`}
             >
@@ -281,4 +284,3 @@ const Navigation = () => {
 };
 
 export default Navigation;
-
