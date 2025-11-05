@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 // Style for the main h2 title, replicating the 'Portfolio' text style
 const titleStyle = {
   fontFamily: "'Playfair Display', serif",
-  fontSize: '3rem',
+  fontSize: '3rem', // Base size, will be responsive with classes
   fontWeight: 400,
   color: 'white',
   textShadow: '2px 2px 8px rgba(0, 0, 0, 0.7)',
@@ -73,7 +73,8 @@ export default function App() {
 
   return (
     <div
-      className="min-h-screen flex items-center justify-center py-20 px-4"
+      // UPDATED: Added w-full overflow-x-hidden and adjusted padding for mobile
+      className="min-h-screen w-full overflow-x-hidden flex items-center justify-center py-12 sm:py-20 px-2 sm:px-4"
       style={{
         // Changed the gradient from light to dark to make the white text pop
         backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('testimonial.jpeg')",
@@ -84,9 +85,9 @@ export default function App() {
     >
       <div className="max-w-4xl w-full">
         {/* Header */}
-        <div className="text-center mb-16">
-          {/* Applied the new styling here, removed conflicting Tailwind classes */}
-          <h2 style={titleStyle}>
+        <div className="text-center mb-12 sm:mb-16">
+          {/* UPDATED: Added responsive text size classes to override style */}
+          <h2 style={titleStyle} className="text-4xl md:text-5xl">
             What Our Clients Say
           </h2>
         </div>
@@ -96,7 +97,8 @@ export default function App() {
           {/* Navigation Buttons */}
           <button
             onClick={goToPrevious}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12 z-10 w-12 h-12 rounded-full bg-white/80 backdrop-blur-sm border-2 border-amber-700 text-amber-700 flex items-center justify-center text-2xl hover:bg-amber-700 hover:text-white transition-all duration-300 shadow-lg"
+            // UPDATED: Pulled buttons in on mobile (-translate-x-4), kept desktop at lg:-translate-x-12. Reduced size on mobile.
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-8 lg:-translate-x-12 z-10 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/80 backdrop-blur-sm border-2 border-amber-700 text-amber-700 flex items-center justify-center text-2xl hover:bg-amber-700 hover:text-white transition-all duration-300 shadow-lg"
             aria-label="Previous testimonial"
           >
             ‹
@@ -104,27 +106,33 @@ export default function App() {
 
           <button
             onClick={goToNext}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-12 z-10 w-12 h-12 rounded-full bg-white/80 backdrop-blur-sm border-2 border-amber-700 text-amber-700 flex items-center justify-center text-2xl hover:bg-amber-700 hover:text-white transition-all duration-300 shadow-lg"
+            // UPDATED: Pulled buttons in on mobile (translate-x-4), kept desktop at lg:translate-x-12. Reduced size on mobile.
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-8 lg:translate-x-12 z-10 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/80 backdrop-blur-sm border-2 border-amber-700 text-amber-700 flex items-center justify-center text-2xl hover:bg-amber-700 hover:text-white transition-all duration-300 shadow-lg"
             aria-label="Next testimonial"
           >
             ›
           </button>
 
           {/* Testimonial Card */}
-          <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl p-12 min-h-[500px] flex flex-col items-center justify-center">
+          {/* UPDATED: Reduced padding and min-height for mobile */}
+          <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl p-8 md:p-12 min-h-[450px] md:min-h-[500px] flex flex-col items-center justify-center">
             <img
               src={testimonials[currentIndex].image}
               alt={testimonials[currentIndex].name}
-              className="w-40 h-40 rounded-lg object-cover shadow-lg mb-6"
+              // UPDATED: Reduced image size for mobile
+              className="w-24 h-24 md:w-40 md:h-40 rounded-lg object-cover shadow-lg mb-4 md:mb-6"
             />
             
-            <div className="text-6xl text-amber-700 mb-4" style={{ fontFamily: 'serif' }}></div>
+            {/* UPDATED: Reduced text size and margin */}
+            <div className="text-4xl md:text-6xl text-amber-700 mb-2 md:mb-4" style={{ fontFamily: 'serif' }}></div>
             
-            <p className="text-lg text-gray-700 text-center leading-relaxed mb-8 max-w-2xl">
+            {/* UPDATED: Reduced text size and margin */}
+            <p className="text-base md:text-lg text-gray-700 text-center leading-relaxed mb-6 md:mb-8 max-w-2xl">
               {testimonials[currentIndex].text}
             </p>
             
-            <h3 className="text-xl font-bold text-gray-800">
+            {/* UPDATED: Reduced text size */}
+            <h3 className="text-lg md:text-xl font-bold text-gray-800">
               {testimonials[currentIndex].name}
             </h3>
             
@@ -134,7 +142,8 @@ export default function App() {
           </div>
 
           {/* Dots Navigation */}
-          <div className="flex justify-center gap-3 mt-8">
+          {/* UPDATED: Reduced margin-top */}
+          <div className="flex justify-center gap-3 mt-6 md:mt-8">
             {testimonials.map((_, index) => (
               <button
                 key={index}
