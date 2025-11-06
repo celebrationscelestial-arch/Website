@@ -24,11 +24,11 @@ const servicesData = [
 const ServicesPage = () => {
   return (
     // Section container, just like team.tsx
-    <section id="services" className="bg-white">
+    <section id="services" className="bg-white" >
       
       {/* === HEADER (Copied from team.tsx and content adapted) === */}
       <header 
-        className="relative h-[50vh] overflow-hidden"
+        className="relative h-[65vh] overflow-hidden"
         style={{ 
           // Using the image from your original services.tsx
           backgroundImage: "url('services.jpeg')", 
@@ -41,7 +41,7 @@ const ServicesPage = () => {
         <div className="absolute inset-0 bg-black opacity-60"></div>
 
         {/* Centered Text Container */}
-        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center h-full flex flex-col justify-center">
+        <div className="relative max-w-6xl mx-auto pt-20 px-4 sm:px-6 lg:px-8 text-center h-full flex flex-col justify-center">
           <h1 className="font-great-vibes text-5xl md:text-7xl text-white mb-6">
             Our Exquisite Services
           </h1>

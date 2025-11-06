@@ -27,7 +27,7 @@ const Navigation = () => {
 
   // --- MODIFICATION: Updated navItems array ---
   const navItems = [
-    { name: 'Home', href: '#hero', type: 'scroll' },
+    { name: 'Home', href: '/', type: 'page' },
     {
       name: 'About',
       type: 'dropdown', // New type for the dropdown

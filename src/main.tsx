@@ -1,33 +1,20 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom'; // <-- This is the key change
 
-import App from './App'; // Your main homepage component
-import ServicesPage from './actualservices.tsx'; // Your services page
-import TeamPage from './team.tsx'; // --- ADDED: Import for the new team page ---
+import App from './App'; // Your main app component
 import './index.css';
 
-// 1. Define your "routes" or "URL map"
-const router = createBrowserRouter([
-  {
-    path: "/", // The "root" or homepage URL
-    element: <App />, // Show the <App /> component
-  },
-  {
-    path: "/services", // The URL for your services page
-    element: <ServicesPage />, // Show the <ServicesPage /> component
-  },
-  // --- ADDED: New route for the team page ---
-  {
-    path: "/team",
-    element: <TeamPage />,
-  },
-  // --- END ADDITION ---
-]);
+// 1. Get the root element
+const rootElement = document.getElementById('root')!;
+const root = createRoot(rootElement);
 
-// 2. Render the RouterProvider inside your StrictMode
-createRoot(document.getElementById('root')!).render(
+// 2. Render your App, wrapped in a single, simple BrowserRouter
+// This tells React: "Hey, App.tsx is now in charge of all routes."
+root.render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </StrictMode>
 );

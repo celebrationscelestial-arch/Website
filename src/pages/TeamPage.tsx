@@ -50,7 +50,7 @@ const Team = () => {
       {/* === MODIFIED HEADER === */}
       {/* This header is now full-width. h-[50vh] sets its height to 50% of the viewport height. */}
       <header 
-        className="relative h-[50vh] overflow-hidden"
+        className="relative h-[65vh] overflow-hidden"
         // --- Replace this URL with your own background image ---
         style={{ 
           backgroundImage: "url('teamimg.jpeg')", 
@@ -67,7 +67,7 @@ const Team = () => {
           and center the content vertically.
         */}
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center h-full flex flex-col justify-center">
-          <h1 className="font-great-vibes text-5xl md:text-7xl text-white mb-6">
+          <h1 className="font-great-vibes text-5xl md:text-7xl text-white mb-6 pt-14">
             Meet Our Creative Team 
           </h1>
           <div className="max-w-3xl mx-auto">
