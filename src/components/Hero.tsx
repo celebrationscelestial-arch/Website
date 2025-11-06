@@ -29,7 +29,7 @@ const Hero = () => {
           This layer sits on top of the video (z-0) to darken it
           and also helps block any stray mouse interactions.
       */}
-      <div className="absolute inset-0 bg-black/10 z-5"></div>
+      <div className="absolute inset-0 z-5"></div>
 
       {/* 3. The Button (z-20) */}
       <div className="absolute bottom-14 left-1/2 transform -translate-x-1/2 z-20 w-25 px-10 sm:w-auto">
