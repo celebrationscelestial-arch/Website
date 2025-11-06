@@ -38,11 +38,14 @@ const About = () => {
           <div className="max-w-3xl mx-auto space-y-4">
             {/* UPDATED: Reduced text size for mobile */}
             <p className="text-base sm:text-lg text-gray-600 leading-relaxed font-serif">
-             At Celestial Celebrations, we believe every moment deserves to shine as brightly as the stars. Our mission is to craft unforgettable experiences that blend beauty, meaning, and wonder — whether it’s a wedding under the night sky, a themed gala, or a private celebration inspired by the cosmos.
+            Celestial Celebrations is one of Kerala’s most admired names in event planning, known for turning moments into magical memories. What makes us stand apart is our dedication to our clients — we design every event around their dreams, priorities, and possibilities, ensuring that expectations always shine brighter than budgets.
+
             </p>
             {/* UPDATED: Reduced text size for mobile */}
             <p className="text-base sm:text-lg text-gray-600 leading-relaxed font-serif">
-             Founded on a passion for creativity and connection, Celestial Celebrations brings together artful design, meticulous planning, and a touch of celestial magic. We curate every detail — from lighting and décor to music and atmosphere — to ensure your event feels truly out of this world.
+             As passionate wedding and event planners, we take complete responsibility for every detail — from concept to creation. Whether it’s a serene celebration by the shores of Alappuzha or a grand affair in Kochi’s vibrant venues, we bring beauty, precision, and emotion to every element.
+
+             With Celestial Celebrations, your occasion becomes more than an event — it becomes an experience that feels timeless, elegant, and truly celestial.
             </p>
           </div>
         </header>
