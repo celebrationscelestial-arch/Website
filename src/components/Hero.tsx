@@ -19,7 +19,7 @@ const Hero = () => {
       <div className="absolute z-0 w-full h-full pointer-events-none overflow-hidden">
         <iframe 
           className="absolute z-0 w-full h-[calc(100%+120px)] -top-[60px] pointer-events-none" 
-          src="https://www.youtube.com/embed/pk_RCOexuac?autoplay=1&mute=1&loop=1&playsinline=1&controls=0&rel=0&modestbranding=1&playlist=TD402-YW9AQ&vq=hd720" 
+          src="https://www.youtube.com/embed/pk_RCOexuac?autoplay=1&mute=1&loop=1&playsinline=1&controls=0&rel=0&modestbranding=1&playlist=TD402-YW9AQ&vq=hd1080" 
           title="Hero background video"  
           allow="autoplay; encrypted-media" 
         ></iframe>
